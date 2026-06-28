@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>저작권 및 무단복제 금지 안내 | Cancer IT KR</title>
+  <meta name="robots" content="noindex, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.8;
+    }
+    header {
+      background: #0d9488;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .logo-text strong { color: white; font-size: 16px; }
+    .logo-text span { color: rgba(255,255,255,0.7); font-size: 12px; display: block; }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .badge {
+      display: inline-block;
+      background: #fee2e2;
+      color: #991b1b;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .notice-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: #7c2d12;
+      line-height: 1.8;
+    }
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: #0d9488;
+      color: white;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .section h2 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+    }
+    .section p {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    .item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .item-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+    .item-list li::before {
+      content: '▸';
+      color: #0d9488;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ban-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .ban-tag {
+      background: #fee2e2;
+      color: #991b1b;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .law-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .law-item {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .law-item strong { color: #1e293b; }
+    .contact-box {
+      background: linear-gradient(135deg, #0d9488, #0e7490);
+      border-radius: 12px;
+      padding: 28px;
+      color: white;
+      margin-top: 4px;
+    }
+    .contact-box p { color: rgba(255,255,255,0.85); font-size: 14px; margin-bottom: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: white;
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .footer-notice {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d9488;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 32px;
+      transition: background 0.2s;
+    }
+    .back-btn:hover { background: #0f766e; }
+    @media (max-width: 600px) {
+      .ban-grid { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="https://cancer.it.kr">
+    <div class="logo-icon">🎗️</div>
+    <div class="logo-text">
+      <strong>Cancer IT KR</strong>
+      <span>글로벌 암 정보 플랫폼</span>
+    </div>
+  </a>
+</header>
+
+<div class="container">
+
+  <div class="badge">⚖️ Legal Notice</div>
+  <h1>저작권 및 무단복제 금지 안내</h1>
+  <p class="subtitle">cancer.it.kr · 최종 업데이트: 2026년 6월 · 빅터강 매니저 (암승리자모임 운영자)</p>
+
+  <div class="notice-box">
+    본 사이트(cancer.it.kr)의 콘텐츠, 페이지 구성, 카테고리 구조, 의료 정보 데이터베이스 구조, SEO 설계 및 모든 저작물의 무단 복제·재가공·상업적 이용을 금지합니다. 위반 시 관련 법령에 따라 법적 조치가 취해질 수 있습니다.
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">1</span>사이트 정체성</h2>
+    <p>cancer.it.kr은 2007년부터 이어온 네이버 암승리자모임(암승모) 커뮤니티를 기반으로, 암 환자와 가족을 위한 검증된 글로벌 의료 정보를 제공하는 전문 플랫폼입니다.</p>
+    <p>전 세계 주요 암 연구기관(NCI, ASCO, Lancet, NEJM 등)의 최신 정보를 한국어로 큐레이션하여 제공하며, 17년 이상의 운영 노하우와 신뢰도를 바탕으로 구축된 고유한 정보 자산을 보유하고 있습니다.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">2</span>보호 대상 (저작물 · 데이터베이스 · 영업상 자산)</h2>
+    <p>본 사이트의 다음 사항 일체는 cancer.it.kr의 저작물, 데이터베이스 및 영업상 자산입니다.</p>
+    <ul class="item-list">
+      <li>모든 암 관련 콘텐츠 (뉴스 기사, 연구 동향, 치료 가이드, 생존자 이야기, Q&amp;A)</li>
+      <li>모든 문구, 이미지, 인포그래픽, 도식, 일러스트</li>
+      <li>페이지 구성과 UI/UX 레이아웃 및 디자인 시스템</li>
+      <li>암 종류별 카테고리 구조 및 내부링크 구조</li>
+      <li>글로벌 의료 정보 큐레이션 시스템 및 번역 방법론</li>
+      <li>데이터베이스 구조 및 콘텐츠 분류 체계</li>
+      <li>SEO 설계 (제목·메타태그·구조화데이터·sitemap·URL 체계)</li>
+      <li>암승모 커뮤니티 연동 구조 및 운영 노하우</li>
+      <li>파트너 기관 정보 및 협력 네트워크</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">3</span>금지 행위</h2>
+    <p>사전 서면 동의 없이 본 사이트의 전부 또는 일부를 아래와 같이 사용하는 것을 엄격히 금지합니다.</p>
+    <div class="ban-grid">
+      <div class="ban-tag">무단 복제</div>
+      <div class="ban-tag">화면 캡처</div>
+      <div class="ban-tag">전재·전송</div>
+      <div class="ban-tag">수정·편집</div>
+      <div class="ban-tag">재배포</div>
+      <div class="ban-tag">재가공</div>
+      <div class="ban-tag">상업적 이용</div>
+      <div class="ban-tag">유사 서비스 제작</div>
+      <div class="ban-tag">제3자 제공</div>
+      <div class="ban-tag">AI 학습 활용</div>
+      <div class="ban-tag">크롤링·스크래핑</div>
+      <div class="ban-tag">유사 페이지 제작</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">4</span>법적 조치</h2>
+    <p>위반 시 아래 법령에 따라 게시중단 요청, 손해배상 청구, 형사 고소 등 필요한 법적 조치를 취할 수 있습니다.</p>
+    <div class="law-list">
+      <div class="law-item">⚖️ <span><strong>저작권법</strong> — 저작물 무단 복제·배포·전송 금지</span></div>
+      <div class="law-item">🔒 <span><strong>부정경쟁방지 및 영업비밀보호에 관한 법률</strong> — 영업상 자산 무단 이용 금지</span></div>
+      <div class="law-item">🛡️ <span><strong>정보통신망 이용촉진 및 정보보호 등에 관한 법률</strong> — 무단 데이터 수집 금지</span></div>
+      <div class="law-item">📋 <span><strong>개인정보보호법</strong> — 이용자 정보 무단 수집·이용 금지</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">5</span>인용 및 공유 원칙</h2>
+    <p>본 사이트의 내용을 비상업적 목적으로 인용할 경우 아래 원칙을 반드시 준수하여야 합니다.</p>
+    <ul class="item-list">
+      <li>출처를 반드시 명시 — <strong>cancer.it.kr (빅터강 매니저)</strong></li>
+      <li>원문 링크를 함께 표기</li>
+      <li>전문 복사 금지 — 핵심 내용 요약 후 출처 표기 방식으로만 허용</li>
+      <li>상업적 목적의 인용은 사전 서면 동의 필수</li>
+      <li>의료 정보 특성상 임의 수정·재가공은 어떠한 경우에도 금지</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="section-num">6</span>자료 활용 · 제휴 문의</h2>
+    <p>본 사이트의 자료를 활용하거나 제휴를 원하시는 경우, 반드시 사전 서면 동의를 받아야 합니다. 사용 목적·범위·기간을 명시하여 아래로 문의해 주시기 바랍니다.</p>
+    <div class="contact-box">
+      <p>문의 시 사용 목적, 활용 범위, 기간을 함께 기재해 주시기 바랍니다.</p>
+      <div class="contact-item">📧 kangnw2023@gmail.com</div>
+      <div class="contact-item">🏠 네이버 암승모 카페 — cafe.naver.com/amwinner</div>
+      <div class="contact-item">🌐 cancer.it.kr 문의 페이지</div>
+    </div>
+  </div>
+
+  <a href="https://cancer.it.kr" class="back-btn">← 메인으로 돌아가기</a>
+
+  <div class="footer-notice">
+    © 2026 cancer.it.kr · 빅터강 매니저 · 암승리자모임(암승모) · All rights reserved.<br />
+    본 안내는 2026년 6월부로 시행되며, 사이트 운영 정책에 따라 수정될 수 있습니다.<br /><br />
+    본 사이트의 의료 정보는 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다.
+  </div>
+
+</div>
+
+</body>
+</html>
