@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="암 환자 맞춤 절약 정보 — 산정특례, 의료비 지원, 가발 건보, 생활비 줄이는 법까지. 치료비 부담을 줄이는 실전 가이드" />
+  <title>암 환자 절약 가이드 | Cancer IT KR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --teal:#0d9488;--teal-dark:#0f766e;--teal-light:#ccfbf1;
+      --navy:#1e293b;--gray:#64748b;--light:#f8fafc;--white:#ffffff;
+      --green:#16a34a;--green-light:#dcfce7;
+      --orange:#f97316;--yellow:#eab308;
+      --border:#e2e8f0;--shadow:0 4px 24px rgba(0,0,0,0.08);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans KR',sans-serif;color:var(--navy);background:var(--white);line-height:1.7;}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--teal),#0e9f6e);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+    .logo-text strong{display:block;font-size:18px;font-weight:700;color:var(--teal-dark);}
+    .logo-text span{font-size:11px;color:var(--gray);}
+    nav a{text-decoration:none;color:var(--navy);font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;}
+    nav a:hover{background:var(--teal-light);color:var(--teal-dark);}
+    .header-cta{background:var(--teal);color:var(--white)!important;border-radius:8px;padding:8px 18px!important;font-weight:600!important;font-size:13px!important;margin-left:8px;}
+    .page-hero{background:linear-gradient(135deg,#14532d,#16a34a);padding:64px 24px;text-align:center;}
+    .page-hero .breadcrumb{color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:16px;}
+    .page-hero .breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none;}
+    .page-hero h1{font-size:clamp(24px,4vw,42px);font-weight:900;color:white;margin-bottom:12px;letter-spacing:-1px;}
+    .page-hero p{font-size:16px;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto 24px;}
+    .hero-stat-bar{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+    .h-stat{text-align:center;color:white;}
+    .h-stat strong{display:block;font-size:28px;font-weight:700;color:#a7f3d0;}
+    .h-stat span{font-size:12px;opacity:.8;}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px;}
+    /* INTRO MESSAGE */
+    .intro-msg{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 16px 16px 0;padding:20px 24px;margin:48px 0 40px;font-size:14px;line-height:1.8;color:#14532d;}
+    .intro-msg strong{font-size:16px;display:block;margin-bottom:6px;}
+    section.content{padding:0 24px 64px;}
+    .section-tag{display:inline-block;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;letter-spacing:1px;padding:6px 16px;border-radius:50px;margin-bottom:14px;}
+    .sec-title{font-size:22px;font-weight:700;margin-bottom:8px;}
+    .sec-sub{font-size:14px;color:var(--gray);margin-bottom:28px;}
+    /* CARD GRID */
+    .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px;}
+    .s-card{border-radius:20px;padding:28px;transition:transform .2s,box-shadow .2s;}
+    .s-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.1);}
+    .s-card.green{background:linear-gradient(135deg,#f0fdf4,var(--green-light));}
+    .s-card.teal{background:var(--teal-light);}
+    .s-card.yellow{background:#fefce8;}
+    .s-card.orange{background:#fff7ed;}
+    .s-card.purple{background:#f5f3ff;}
+    .s-card.navy{background:#f1f5f9;}
+    .s-emoji{font-size:32px;display:block;margin-bottom:12px;}
+    .s-cat{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
+    .s-card h3{font-size:16px;font-weight:700;line-height:1.45;margin-bottom:10px;}
+    .s-card p{font-size:13px;color:#475569;line-height:1.7;}
+    .s-card ul{font-size:13px;color:#475569;line-height:1.8;padding-left:18px;margin-top:8px;}
+    .amount-badge{display:inline-block;background:#16a34a;color:white;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;margin-top:12px;}
+    /* BIG FEATURE */
+    .big-feature{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:24px;padding:40px;margin-bottom:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+    .bf-left h2{font-size:22px;font-weight:700;line-height:1.4;margin-bottom:14px;}
+    .bf-left p{font-size:14px;color:#374151;line-height:1.8;margin-bottom:16px;}
+    .savings-pill{background:#16a34a;color:white;font-size:14px;font-weight:700;padding:10px 20px;border-radius:50px;display:inline-block;}
+    .bf-right{background:white;border-radius:16px;padding:24px;}
+    .bf-right h4{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--green);}
+    .check-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:13px;}
+    .check-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:2px;}
+    /* TABLE */
+    .support-table{width:100%;border-collapse:collapse;margin-bottom:56px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+    .support-table th{background:var(--teal-dark);color:white;padding:14px 16px;font-size:13px;font-weight:700;text-align:left;}
+    .support-table td{padding:14px 16px;font-size:13px;border-bottom:1px solid var(--border);}
+    .support-table tr:last-child td{border-bottom:none;}
+    .support-table tr:nth-child(even) td{background:var(--light);}
+    .amount{font-weight:700;color:var(--green);}
+    .how-to{color:var(--gray);font-size:12px;}
+    /* MONTHLY CHECKLIST */
+    .checklist-box{background:var(--navy);border-radius:24px;padding:36px;margin-bottom:56px;color:white;}
+    .checklist-box h2{font-size:20px;font-weight:700;margin-bottom:8px;}
+    .checklist-box .sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:24px;}
+    .months-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .month-card{background:rgba(255,255,255,.07);border-radius:12px;padding:16px;}
+    .month-card .m-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:8px;text-transform:uppercase;}
+    .month-card h4{font-size:14px;font-weight:700;color:#a7f3d0;margin-bottom:6px;}
+    .month-card p{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;}
+    /* FOOD SAVING */
+    .food-tips{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:56px;}
+    .ft-card{background:white;border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow);}
+    .ft-card h4{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .ft-card ul{font-size:13px;color:#475569;line-height:1.8;padding-left:18px;}
+    /* CTA */
+    .cafe-cta{background:linear-gradient(135deg,var(--green),#15803d);border-radius:24px;padding:40px;text-align:center;color:white;}
+    .cafe-cta h2{font-size:22px;font-weight:700;margin-bottom:10px;}
+    .cafe-cta p{font-size:14px;opacity:.85;margin-bottom:24px;}
+    .btn-white{background:white;color:var(--green);padding:13px 28px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block;transition:all .2s;margin:0 6px;}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
+    .btn-outline{background:transparent;color:white;padding:13px 28px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;border:2px solid rgba(255,255,255,.5);display:inline-block;transition:all .2s;margin:0 6px;}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:32px 24px;text-align:center;font-size:13px;}
+    footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 10px;}
+    footer a:hover{color:white;}
+    @media(max-width:900px){
+      .cards-grid{grid-template-columns:1fr 1fr;}
+      .big-feature{grid-template-columns:1fr;}
+      .months-grid{grid-template-columns:repeat(2,1fr);}
+      .food-tips{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){
+      .cards-grid{grid-template-columns:1fr;}
+      .hero-stat-bar{gap:20px;}
+      nav{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">🎗️</div>
+      <div class="logo-text">
+        <strong>Cancer IT KR</strong>
+        <span>암 환자와 가족을 위한 희망의 공간</span>
+      </div>
+    </a>
+    <nav>
+      <a href="/">홈</a>
+      <a href="/tips/">꿀팁</a>
+      <a href="/insight/">인사이트 라이브러리</a>
+      <a href="/savings/" style="color:var(--green);font-weight:700;">절약 정보</a>
+      <a href="https://cafe.naver.com/amwinner" class="header-cta" target="_blank">암승모 카페 →</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/">홈</a> &gt; 암 환자 절약 가이드</div>
+  <h1>💰 암 환자도 사람입니다<br />절약도 치료입니다</h1>
+  <p>치료비 걱정, 생활비 부담… 돈 걱정도 암과 싸우는 일부입니다. 신청하면 받을 수 있는 지원금과 생활비 줄이는 실전 노하우를 모았습니다.</p>
+  <div class="hero-stat-bar">
+    <div class="h-stat"><strong>최대 95%</strong><span>산정특례 의료비 절감</span></div>
+    <div class="h-stat"><strong>연 50만 원</strong><span>의료용 가발 건보 지원</span></div>
+    <div class="h-stat"><strong>월 최대 100만</strong><span>긴급복지지원 생계비</span></div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="container">
+
+    <div class="intro-msg">
+      <strong>💚 왜 절약 정보가 암 사이트에 있나요?</strong>
+      암 환자는 치료비와 생활비를 동시에 걱정합니다. 다른 암 정보 사이트는 의학 정보만 있고 돈 걱정은 아무도 안 다뤄줍니다. 하지만 신청 안 하면 못 받는 지원금이 생각보다 훨씬 많습니다. 치료에 집중하려면 경제적 부담을 먼저 줄여야 합니다.
+    </div>
+
+    <!-- 의료비 지원 섹션 -->
+    <span class="section-tag">🏥 의료비 절약</span>
+    <h2 class="sec-title">신청하면 받을 수 있는 의료비 지원</h2>
+    <p class="sec-sub">모르면 손해인 제도들입니다. 아래 내용 꼭 확인하세요.</p>
+
+    <!-- 산정특례 BIG FEATURE -->
+    <div class="big-feature">
+      <div class="bf-left">
+        <h2>1순위 — 산정특례<br />"이것만 신청해도 의료비가 달라집니다"</h2>
+        <p>암 진단을 받으면 가장 먼저 신청해야 하는 것이 <strong>건강보험 산정특례</strong>입니다. 암 환자로 등록되면 외래·입원·검사·항암 치료비의 본인부담률이 최대 5%로 줄어듭니다.</p>
+        <p>예를 들어 항암 치료비가 한 회당 100만 원이면, 산정특례 적용 후 본인 부담은 5만 원으로 줄어듭니다.</p>
+        <span class="savings-pill">💚 의료비 본인부담 최대 5%만!</span>
+      </div>
+      <div class="bf-right">
+        <h4>📋 산정특례 신청 절차</h4>
+        <div class="check-item">담당 의사에게 산정특례 신청서 발급 요청</div>
+        <div class="check-item">건강보험공단 지사 방문 또는 앱(The건강보험)에서 신청</div>
+        <div class="check-item">승인 후 최대 5년간 적용 (연장 신청 가능)</div>
+        <div class="check-item">외래·입원·약제비 모두 적용됩니다</div>
+        <div class="check-item">등록 병원 외 타 병원 진료 시에도 적용</div>
+        <div style="margin-top:16px;background:#dcfce7;border-radius:10px;padding:12px 14px;font-size:13px;color:#14532d;">
+          📞 문의: 건강보험공단 1577-1000 / The건강보험 앱
+        </div>
+      </div>
+    </div>
+
+    <!-- 지원금 표 -->
+    <span class="section-tag">💊 전체 지원 제도 한눈에 보기</span>
+    <h2 class="sec-title" style="margin-bottom:20px;">암 환자가 신청할 수 있는 지원 제도</h2>
+    <table class="support-table">
+      <thead>
+        <tr>
+          <th>지원 제도</th>
+          <th>지원 내용</th>
+          <th>지원 금액</th>
+          <th>신청처</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>건강보험 산정특례</strong></td>
+          <td>암 치료 의료비 본인부담 경감</td>
+          <td class="amount">본인부담 5%만 납부</td>
+          <td class="how-to">건강보험공단 1577-1000</td>
+        </tr>
+        <tr>
+          <td><strong>중증질환 의료비 지원</strong></td>
+          <td>차상위·의료급여 암 환자 의료비 지원</td>
+          <td class="amount">연간 최대 200만 원</td>
+          <td class="how-to">주민센터 또는 복지로</td>
+        </tr>
+        <tr>
+          <td><strong>의료용 가발 건보 급여</strong></td>
+          <td>항암 탈모 시 의료용 가발 구입비</td>
+          <td class="amount">연 1회 최대 50만 원</td>
+          <td class="how-to">처방전 받아 공단에 청구</td>
+        </tr>
+        <tr>
+          <td><strong>긴급복지지원 — 의료지원</strong></td>
+          <td>갑작스러운 위기 상황 의료비</td>
+          <td class="amount">회당 최대 300만 원</td>
+          <td class="how-to">주민센터 긴급복지팀</td>
+        </tr>
+        <tr>
+          <td><strong>긴급복지지원 — 생계지원</strong></td>
+          <td>치료 중 소득 감소 생계비</td>
+          <td class="amount">4인 기준 월 최대 약 100만</td>
+          <td class="how-to">주민센터 복지담당</td>
+        </tr>
+        <tr>
+          <td><strong>암 환자 재가서비스</strong></td>
+          <td>간병·가사·정서 지원 서비스</td>
+          <td class="amount">월 최대 40시간 무료</td>
+          <td class="how-to">국립암센터 1577-8899</td>
+        </tr>
+        <tr>
+          <td><strong>장기요양보험</strong></td>
+          <td>일상생활 어려운 경우 돌봄 서비스</td>
+          <td class="amount">등급에 따라 월 최대 150만</td>
+          <td class="how-to">건강보험공단 등급 판정</td>
+        </tr>
+        <tr>
+          <td><strong>고용보험 상병급여</strong></td>
+          <td>입원치료 중 근로자 소득 보전</td>
+          <td class="amount">일급 × 60% × 치료일수</td>
+          <td class="how-to">고용노동부 고용24</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 월별 체크리스트 -->
+    <div class="checklist-box">
+      <h2>📅 신청 타이밍 놓치지 마세요</h2>
+      <p class="sub">암 치료 단계별로 신청해야 할 것들이 다릅니다</p>
+      <div class="months-grid">
+        <div class="month-card">
+          <div class="m-label">📍 진단 즉시</div>
+          <h4>산정특례 신청</h4>
+          <p>담당의에게 신청서 발급 → 공단 접수. 늦으면 소급 적용 안 됩니다.</p>
+        </div>
+        <div class="month-card">
+          <div class="m-label">📍 항암 시작 전</div>
+          <h4>가발 처방전 받기</h4>
+          <p>탈모 시작 전 의사에게 처방전 발급받아 건강보험 급여 신청 준비.</p>
+        </div>
+        <div class="month-card">
+          <div class="m-label">📍 소득 감소 시</div>
+          <h4>긴급복지지원 신청</h4>
+          <p>갑작스러운 위기 발생 후 30일 이내에 주민센터에 신청해야 합니다.</p>
+        </div>
+        <div class="month-card">
+          <div class="m-label">📍 치료 종료 후</div>
+          <h4>산정특례 연장 신청</h4>
+          <p>5년 만료 전 담당의 확인 후 연장 신청 가능. 기간 놓치지 마세요.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 생활비 절약 섹션 -->
+    <span class="section-tag">🛒 생활비 절약</span>
+    <h2 class="sec-title">치료 중 생활비 줄이는 실전 팁</h2>
+    <p class="sec-sub">암 환자도 장보고, 요리하고, 생활합니다. 조금만 알아도 달라집니다.</p>
+    <div class="cards-grid">
+      <div class="s-card green">
+        <span class="s-emoji">🛒</span>
+        <div class="s-cat">장보기 절약</div>
+        <h3>마트 할인 타이밍<br />이렇게 활용하세요</h3>
+        <ul>
+          <li>저녁 7~8시 → 육류·생선 50% 할인 시작</li>
+          <li>대형마트 앱 알림 설정으로 반값 행사 미리 파악</li>
+          <li>항암 중 필요한 단백질 식품(닭·계란·두부) 묶음 구매</li>
+          <li>온라인 새벽배송 — 이른 시간 추가 할인 상품 노리기</li>
+        </ul>
+        <span class="amount-badge">월 3~5만 원 절약 가능</span>
+      </div>
+      <div class="s-card teal">
+        <span class="s-emoji">📱</span>
+        <div class="s-cat">통신비 절약</div>
+        <h3>치료 중 통신비<br />줄이는 방법</h3>
+        <ul>
+          <li>장기 입원 시 일시정지 신청 → 기본료 면제</li>
+          <li>복지 알뜰폰 요금제 확인 (월 만 원대부터)</li>
+          <li>통신사 저소득·취약계층 감면 제도 신청</li>
+          <li>국민행복카드로 통신비 일부 지원 가능</li>
+        </ul>
+        <span class="amount-badge">월 2~4만 원 절약 가능</span>
+      </div>
+      <div class="s-card yellow">
+        <span class="s-emoji">⚡</span>
+        <div class="s-cat">공과금 절약</div>
+        <h3>암 환자 공과금<br />감면 제도</h3>
+        <ul>
+          <li>전기요금 — 암 환자 생명유지장치 보유 시 감면</li>
+          <li>도시가스 — 사회적 배려 대상자 감면 신청</li>
+          <li>수도요금 — 지자체별 복지 감면 확인</li>
+          <li>주민센터에 '에너지 바우처' 신청 여부 문의</li>
+        </ul>
+        <span class="amount-badge">연 10~30만 원 절약 가능</span>
+      </div>
+      <div class="s-card orange">
+        <span class="s-emoji">🚗</span>
+        <div class="s-cat">교통비 절약</div>
+        <h3>병원 오가는<br />교통비 줄이기</h3>
+        <ul>
+          <li>중증장애(인정 시) → 고속버스·철도 50% 할인</li>
+          <li>병원 무료 셔틀버스 운영 여부 확인</li>
+          <li>지자체 환자이송 바우처 신청 (일부 지역 지원)</li>
+          <li>카카오T 복지 이동 서비스 확인</li>
+        </ul>
+        <span class="amount-badge">월 1~3만 원 절약 가능</span>
+      </div>
+      <div class="s-card purple">
+        <span class="s-emoji">🏠</span>
+        <div class="s-cat">주거 관련</div>
+        <h3>치료 기간 중<br />주거비 줄이기</h3>
+        <ul>
+          <li>병원 인근 국립암센터 희망원 (저렴한 숙박)</li>
+          <li>암 환자 주거지원 프로그램 (LH 공사 문의)</li>
+          <li>한국암웨이재단 등 민간 주거지원 프로그램</li>
+          <li>위기 상황 시 긴급주거지원 신청 가능</li>
+        </ul>
+        <span class="amount-badge">월 수십만 원 절약 가능</span>
+      </div>
+      <div class="s-card navy">
+        <span class="s-emoji">💊</span>
+        <div class="s-cat">약제비 절약</div>
+        <h3>처방약·영양제<br />비용 줄이기</h3>
+        <ul>
+          <li>산정특례 적용 시 처방약도 5% 본인부담</li>
+          <li>제네릭(복제약) 사용 가능 여부 담당의에게 문의</li>
+          <li>병원 사회사업팀 → 고가 항암제 지원 연계 가능</li>
+          <li>영양제는 마트 PB 상품·대용량 묶음 구매 활용</li>
+        </ul>
+        <span class="amount-badge">처방약 본인부담 대폭 감소</span>
+      </div>
+    </div>
+
+    <!-- 식품비 절약 팁 -->
+    <div class="food-tips">
+      <div class="ft-card">
+        <h4>🍳 항암 식단 저렴하게 만들기</h4>
+        <ul>
+          <li>냉동 닭가슴살 대용량 구매 → 한 끼 단백질 1,000원대</li>
+          <li>계란 30구 묶음 → 가장 저렴한 고단백 식품</li>
+          <li>두부 → 100g당 단백질 약 8g, 가격도 저렴</li>
+          <li>콩류 건조 구매 → 삶아서 냉동 보관 활용</li>
+          <li>제철 채소 위주로 → 가격 절반, 영양은 두 배</li>
+        </ul>
+      </div>
+      <div class="ft-card">
+        <h4>💰 영양 음료 저렴하게 구하기</h4>
+        <ul>
+          <li>뉴케어·그린비아 온라인 묶음 구매 시 20~30% 저렴</li>
+          <li>쿠팡·네이버쇼핑 정기배송 구독 → 추가 할인</li>
+          <li>약국 vs 인터넷 — 대부분 인터넷이 20% 이상 저렴</li>
+          <li>병원 사회사업팀에 영양 음료 지원 연계 요청 가능</li>
+          <li>원가가 비슷한 PB 브랜드 영양식 비교 구매</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 절약왕 블로그 연재 섹션 -->
+    <span class="section-tag" style="background:#fefce8;color:#854d0e;">👑 절약왕 연재 콘텐츠</span>
+    <h2 class="sec-title">매일 업데이트되는 실전 절약 정보</h2>
+    <p class="sec-sub">빅터강 매니저의 절약왕 블로그 최신 콘텐츠 — 암 치료 중에도 생활비는 계속 나갑니다</p>
+    <div class="cards-grid" style="margin-bottom:56px;">
+      <a href="https://jeolyakwang.blogspot.com/2026/06/3.html" target="_blank" style="text-decoration:none;color:inherit;">
+        <div class="s-card yellow" style="height:100%;cursor:pointer;">
+          <span class="s-emoji">📱</span>
+          <div class="s-cat">통신비 절약 · 절약왕</div>
+          <h3>알뜰폰으로 통신비<br />월 3만 원 절약하는 법</h3>
+          <p>치료 기간 중 소득이 줄었다면 통신비부터 줄이세요. 같은 망인데 요금은 절반. 월 최대 7만 원 → 2만 원대�
