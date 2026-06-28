@@ -1,1 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
 
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "ko"
+
+collections:
+  - name: "tips"
+    label: "꿀팁 포스트"
+    folder: "_tips"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "작성일", name: "date", widget: "datetime"}
+      - {label: "카테고리", name: "category", widget: "select", options: ["식단·영양", "마음·정서", "생활수칙", "환자지원·제도", "운동·회복", "가족·소통"]}
+      - {label: "요약", name: "summary", widget: "text"}
+      - {label: "내용", name: "body", widget: "markdown"}
+
+  - name: "news"
+    label: "최신 뉴스"
+    folder: "_news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "작성일", name: "date", widget: "datetime"}
+      - {label: "카테고리", name: "category", widget: "select", options: ["면역항암", "유방암", "표적치료", "폐암", "혈액암", "대장암", "위암", "간암"]}
+      - {label: "요약", name: "summary", widget: "text"}
+      - {label: "내용", name: "body", widget: "markdown"}
+
+  - name: "survivors"
+    label: "생존자 이야기"
+    folder: "_survivors"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "이름(익명)", name: "name", widget: "string"}
+      - {label: "나이", name: "age", widget: "number"}
+      - {label: "암종", name: "cancer_type", widget: "string"}
+      - {label: "상태", name: "status", widget: "select", options: ["완치", "투병중", "관리중"]}
+      - {label: "한줄 메시지", name: "quote", widget: "text"}
+      - {label: "내용", name: "body", widget: "markdown"}
