@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 메인 홈페이지 -->
+  <url>
+    <loc>https://cancer.it.kr/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 꿀팁 페이지 -->
+  <url>
+    <loc>https://cancer.it.kr/tips/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 인사이트 라이브러리 -->
+  <url>
+    <loc>https://cancer.it.kr/insight/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 절약왕 페이지 -->
+  <url>
+    <loc>https://cancer.it.kr/savings/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 저작권 안내 -->
+  <url>
+    <loc>https://cancer.it.kr/copyright.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
