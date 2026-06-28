@@ -6,3 +6,342 @@
   <meta name="description" content="암승모 인사이트 라이브러리 — 치료/의학, 생활수칙, 식단/영양, 마음/정서, 환자지원/제도, 칼럼/자료 6개 카테고리 총정리" />
   <title>인사이트 라이브러리 | Cancer IT KR</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --teal:#0d9488;--teal-dark:#0f766e;--teal-light:#ccfbf1;
+      --navy:#1e293b;--gray:#64748b;--light:#f8fafc;--white:#ffffff;
+      --orange:#f97316;--purple:#8b5cf6;--pink:#ec4899;
+      --yellow:#eab308;--border:#e2e8f0;--shadow:0 4px 24px rgba(0,0,0,0.08);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans KR',sans-serif;color:var(--navy);background:var(--white);line-height:1.7;}
+    header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--teal),#0e9f6e);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+    .logo-text strong{display:block;font-size:18px;font-weight:700;color:var(--teal-dark);}
+    .logo-text span{font-size:11px;color:var(--gray);}
+    nav a{text-decoration:none;color:var(--navy);font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;}
+    nav a:hover{background:var(--teal-light);color:var(--teal-dark);}
+    .header-cta{background:var(--teal);color:var(--white)!important;border-radius:8px;padding:8px 18px!important;font-weight:600!important;font-size:13px!important;margin-left:8px;}
+    .page-hero{background:linear-gradient(135deg,#1e293b,#0f766e);padding:64px 24px;text-align:center;}
+    .page-hero .breadcrumb{color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:16px;}
+    .page-hero .breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none;}
+    .page-hero h1{font-size:clamp(24px,4vw,42px);font-weight:900;color:white;margin-bottom:12px;letter-spacing:-1px;}
+    .page-hero p{font-size:16px;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto 24px;}
+    .hero-note{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);border-radius:50px;padding:8px 20px;font-size:13px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+    /* TOP 5 */
+    .top5-section{background:var(--light);padding:56px 24px;}
+    .section-tag{display:inline-block;background:var(--teal-light);color:var(--teal-dark);font-size:12px;font-weight:700;letter-spacing:1px;padding:6px 16px;border-radius:50px;margin-bottom:14px;}
+    .section-tag.dark{background:rgba(13,148,136,0.15);color:var(--teal-dark);}
+    .top5-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px;}
+    .top5-card{background:white;border-radius:16px;padding:20px;box-shadow:var(--shadow);transition:transform .2s;}
+    .top5-card:hover{transform:translateY(-3px);}
+    .top5-num{width:32px;height:32px;background:var(--teal-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--teal-dark);margin-bottom:10px;}
+    .top5-card.no1 .top5-num{background:var(--teal);color:white;}
+    .top5-cat{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--gray);text-transform:uppercase;margin-bottom:6px;}
+    .top5-card h4{font-size:13px;font-weight:700;line-height:1.5;margin-bottom:8px;}
+    .top5-card p{font-size:12px;color:var(--gray);line-height:1.6;}
+    /* CAT GRID */
+    .cat-section{padding:64px 24px;}
+    .cat-intro{text-align:center;margin-bottom:52px;}
+    .cat-intro h2{font-size:clamp(22px,3vw,34px);font-weight:700;margin-bottom:10px;letter-spacing:-0.5px;}
+    .cat-intro p{font-size:15px;color:var(--gray);}
+    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .cat-card{border-radius:24px;padding:32px;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+    .cat-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+    .cat-card.teal{background:linear-gradient(135deg,#f0fdfa,var(--teal-light));}
+    .cat-card.green{background:linear-gradient(135deg,#f0fdf4,#dcfce7);}
+    .cat-card.orange{background:linear-gradient(135deg,#fff7ed,#ffedd5);}
+    .cat-card.yellow{background:linear-gradient(135deg,#fefce8,#fef9c3);}
+    .cat-card.purple{background:linear-gradient(135deg,#faf5ff,#f3e8ff);}
+    .cat-card.gray{background:linear-gradient(135deg,#f8fafc,#f1f5f9);}
+    .cat-icon-wrap{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;}
+    .cat-icon-wrap.teal-bg{background:rgba(13,148,136,0.15);}
+    .cat-icon-wrap.green-bg{background:#dcfce7;}
+    .cat-icon-wrap.orange-bg{background:#ffedd5;}
+    .cat-icon-wrap.yellow-bg{background:#fef9c3;}
+    .cat-icon-wrap.purple-bg{background:#ede9fe;}
+    .cat-icon-wrap.gray-bg{background:#e2e8f0;}
+    .cat-card h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+    .cat-card .cat-desc{font-size:13px;color:#475569;line-height:1.7;margin-bottom:18px;}
+    .article-list{display:flex;flex-direction:column;gap:8px;}
+    .article-item{background:white;border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;}
+    .article-item .art-title{font-size:13px;font-weight:600;line-height:1.4;}
+    .article-item .art-arrow{font-size:12px;color:var(--teal);font-weight:700;white-space:nowrap;margin-left:8px;}
+    .more-link{display:block;text-align:center;margin-top:14px;font-size:12px;color:var(--gray);font-weight:600;}
+    /* NEWSLETTER BANNER */
+    .nl-banner{background:linear-gradient(135deg,var(--teal),#0e7490);padding:56px 24px;text-align:center;color:white;}
+    .nl-banner h2{font-size:26px;font-weight:700;margin-bottom:10px;}
+    .nl-banner p{font-size:15px;opacity:.85;max-width:520px;margin:0 auto 28px;}
+    .nl-features{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:32px;}
+    .nl-feat{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);}
+    .btn-white{background:white;color:var(--teal-dark);padding:14px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block;transition:all .2s;}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:32px 24px;text-align:center;font-size:13px;}
+    footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 10px;}
+    footer a:hover{color:white;}
+    @media(max-width:1024px){.cat-grid{grid-template-columns:1fr 1fr;}.top5-grid{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:768px){.cat-grid{grid-template-columns:1fr;}.top5-grid{grid-template-columns:repeat(2,1fr);}.nl-features{gap:16px;} nav{display:none;}}
+    @media(max-width:480px){.top5-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">🎗️</div>
+      <div class="logo-text">
+        <strong>Cancer IT KR</strong>
+        <span>암 환자와 가족을 위한 희망의 공간</span>
+      </div>
+    </a>
+    <nav>
+      <a href="/">홈</a>
+      <a href="/tips/">꿀팁</a>
+      <a href="/insight/" style="color:var(--teal-dark);font-weight:700;">인사이트 라이브러리</a>
+      <a href="/savings/">절약 정보</a>
+      <a href="https://cafe.naver.com/amwinner" class="header-cta" target="_blank">암승모 카페 →</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/">홈</a> &gt; 인사이트 라이브러리</div>
+  <h1>🗼 인사이트 라이브러리</h1>
+  <p>등대처럼, 필요한 순간에 길을 비춰주는 참고서.<br />18년간 암승모가 쌓아온 6개 카테고리 지식 허브입니다.</p>
+  <span class="hero-note">📚 매주 새 콘텐츠 업데이트 · 뉴스레터로도 받아보실 수 있습니다</span>
+</div>
+
+<!-- 이번 주 TOP 5 -->
+<section class="top5-section">
+  <div class="container">
+    <span class="section-tag">⭐ 이번 주 추천 TOP 5</span>
+    <p style="font-size:14px;color:var(--gray);margin-top:6px;">이 5개만 따라가도 이번 주 핵심을 놓치지 않습니다</p>
+    <div class="top5-grid">
+      <div class="top5-card no1">
+        <div class="top5-num">1</div>
+        <div class="top5-cat">🔬 치료·의학</div>
+        <h4>PD-L1 면역항암제 병용요법, 폐암 생존율 38% 향상</h4>
+        <p>ASCO 2026 발표 임상 3상 결과 — 읽기 3분</p>
+      </div>
+      <div class="top5-card">
+        <div class="top5-num">2</div>
+        <div class="top5-cat">✅ 생활수칙</div>
+        <h4>38도 법칙 — 항암 중 발열 시 응급 대처법</h4>
+        <p>해열제 먹으면 안 되는 이유 — 읽기 2분</p>
+      </div>
+      <div class="top5-card">
+        <div class="top5-num">3</div>
+        <div class="top5-cat">🥗 식단·영양</div>
+        <h4>단백질 공식 — 내 체중 × 1.2g~1.5g 매일 채우는 법</h4>
+        <p>구체적인 식품별 단백질 함량 — 읽기 2분</p>
+      </div>
+      <div class="top5-card">
+        <div class="top5-num">4</div>
+        <div class="top5-cat">💛 마음·정서</div>
+        <h4>항암 공포심 낮추는 1분 루틴 — 회원 2,000명 실제 사용</h4>
+        <p>치료 전날 밤 불안을 줄이는 방법 — 읽기 2분</p>
+      </div>
+      <div class="top5-card">
+        <div class="top5-num">5</div>
+        <div class="top5-cat">🧾 제도·지원</div>
+        <h4>산정특례 신청하면 실제 얼마나 아끼나? 계산해보기</h4>
+        <p>암 환자 의료비 지원 총정리 — 읽기 3분</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6개 카테고리 -->
+<section class="cat-section">
+  <div class="container">
+    <div class="cat-intro">
+      <span class="section-tag">📚 6개 카테고리</span>
+      <h2>내가 필요한 주제를 바로 찾아보세요</h2>
+      <p>18만 회원의 경험이 담긴 6개 카테고리 — 카테고리를 클릭하면 더 많은 콘텐츠를 볼 수 있습니다</p>
+    </div>
+    <div class="cat-grid">
+
+      <!-- 1. 치료/의학 -->
+      <div class="cat-card teal">
+        <div class="cat-icon-wrap teal-bg">🧪</div>
+        <h3>치료·의학 업데이트</h3>
+        <p class="cat-desc">최신 치료 정보, 임상시험 동향, 의료 용어를 알기 쉽게 풀어드립니다. 전 세계 주요 암 기관의 최신 연구를 한국어로 전달합니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">PD-L1 면역치료 새 병용요법, 폐암 생존율 38% 향상</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">CAR-T 세포 치료란? 혈액암 환자가 알아야 할 것</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">표적치료와 면역치료의 차이 — 3분 만에 이해하기</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">항암제 3대장 완전 정복: 세포독성·표적·면역항암제</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+      <!-- 2. 생활수칙 -->
+      <div class="cat-card green">
+        <div class="cat-icon-wrap green-bg">✅</div>
+        <h3>생활수칙</h3>
+        <p class="cat-desc">감염 예방부터 수면 관리, 무리하지 않는 활동까지. 치료 중 일상을 지키면서 면역력을 지키는 현실적인 방법들입니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">38도 법칙 — 항암 중 발열 시 즉시 응급실 가야 하는 이유</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">항암 중 감염 예방 생활수칙 10가지</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">수면의 질을 높이는 암 환자 수면 루틴</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">치료 중 운동 — 컨디션별 운동량 기준표</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+      <!-- 3. 식단/영양 -->
+      <div class="cat-card orange">
+        <div class="cat-icon-wrap orange-bg">🍲</div>
+        <h3>식단·영양</h3>
+        <p class="cat-desc">항암 중 먹어야 할 것, 피해야 할 것. 18만 회원이 실제로 효과 본 식단 원칙과 레시피. 잘 먹는 것이 최고의 항암입니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">단백질 공식 — 내 체중 × 1.2g, 하루 채우는 실전법</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">절대 금기 식품 리스트 — 회·자몽·고농축 즙 왜 안 되나</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">입맛 없을 때 — 뉴케어·그린비아 완전 활용법</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">방사선 치료 중 피부 관리 + 피로 대처 식단</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+      <!-- 4. 마음/정서 -->
+      <div class="cat-card yellow">
+        <div class="cat-icon-wrap yellow-bg">💛</div>
+        <h3>마음·정서</h3>
+        <p class="cat-desc">불안과 우울을 다스리는 1분 루틴. 가족과 감정을 나누는 방법. 보호자의 지침 건강을 지키는 법까지. 몸만큼 마음도 치료입니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">항암 공포심 낮추는 1분 루틴 — 2,000명 실제 사용법</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">자녀에게 암 진단 사실을 어떻게, 언제 말할까</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">보호자를 위한 멘탈 케어 10계명</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">우울감이 찾아올 때 — 혼자 싸우지 않는 방법</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+      <!-- 5. 환자지원/제도 -->
+      <div class="cat-card purple">
+        <div class="cat-icon-wrap purple-bg">🧾</div>
+        <h3>환자지원·제도</h3>
+        <p class="cat-desc">신청 안 하면 못 받는 돈이 생각보다 많습니다. 산정특례부터 긴급복지지원까지, 암 환자가 챙겨야 할 지원금과 제도를 총정리합니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">산정특례 신청 방법 — 암 환자 의료비 최대 95% 절감</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">중증질환 의료비 지원 — 신청 자격과 절차 완전 정리</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">의료용 가발 건강보험 급여 — 얼마나 받을 수 있나</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">긴급복지지원·장기요양·간병비 지원 총정리</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+      <!-- 6. 칼럼/자료 -->
+      <div class="cat-card gray">
+        <div class="cat-icon-wrap gray-bg">📝</div>
+        <h3>칼럼·전문가 자료</h3>
+        <p class="cat-desc">협력 의료기관 의료진이 직접 작성한 칼럼과 검증된 전문가 자료. 과대광고 없이 팩트만 담은 신뢰할 수 있는 정보입니다.</p>
+        <div class="article-list">
+          <div class="article-item">
+            <span class="art-title">암 치료법 기본 가이드 — 수술·항암·방사선 원리</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">ADC(항체-약물 결합체)란? 엔허투·트로델비 이해하기</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">임상시험 참여 전 꼭 알아야 할 5가지</span>
+            <span class="art-arrow">→</span>
+          </div>
+          <div class="article-item">
+            <span class="art-title">요양기관 선택 가이드 — 치료 종료 후 어디로?</span>
+            <span class="art-arrow">→</span>
+          </div>
+        </div>
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="more-link">카페에서 더 보기 →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 뉴스레터 배너 -->
+<section class="nl-banner">
+  <h2>📮 매주 핵심만 골라드립니다</h2>
+  <p>암승모 인사이트 레터 — 이번 주 꼭 알아야 할 정보를 3분 분량으로 정리해 이메일로 보내드립니다.</p>
+  <div class="nl-features">
+    <div class="nl-feat">✅ 의료 뉴스 3줄 요약</div>
+    <div class="nl-feat">✅ 실전 꿀팁 1개</div>
+    <div class="nl-feat">✅ 이번 주 희망 이야기</div>
+    <div class="nl-feat">✅ 놓치면 손해인 지원 정보</div>
+  </div>
+  <a href="https://forms.gle/tFzzgKqGtTHUw5eP8" target="_blank" class="btn-white">✉️ 무료 구독 신청하기</a>
+</section>
+
+<footer>
+  <div><a href="/">홈</a><a href="/tips/">꿀팁</a><a href="/insight/">인사이트 라이브러리</a><a href="/savings/">절약 정보</a><a href="https://cafe.naver.com/amwinner" target="_blank">암승모 카페</a></div>
+  <p style="margin-top:12px;">© 2026 Cancer IT KR · 본 정보는 의료행위를 대체하지 않습니다. 담당 의료진과 상담하세요.</p>
+</footer>
+
+</body>
+</html>
