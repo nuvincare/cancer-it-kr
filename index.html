@@ -64,6 +64,7 @@
     .section-header h2 { font-size: clamp(22px, 4vw, 36px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
     .section-header p { font-size: 15px; color: var(--gray); max-width: 540px; margin: 0 auto; }
     .container { max-width: 1200px; margin: 0 auto; }
+    /* Survivor */
     .survivor-section { background: var(--light); }
     .survivor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .survivor-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
@@ -76,6 +77,7 @@
     .survivor-quote::before { content: '"'; color: var(--teal); font-size: 22px; line-height: 0; vertical-align: -5px; margin-right: 2px; }
     .survivor-info { font-size: 12px; color: var(--gray); }
     .survivor-info strong { color: var(--navy); }
+    /* Stage */
     .quickfind-section { background: white; }
     .stage-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
     .stage-card { background: var(--light); border: 2px solid var(--border); border-radius: 20px; padding: 26px 14px; text-align: center; cursor: pointer; transition: all 0.2s; text-decoration: none; color: var(--navy); display: block; }
@@ -84,6 +86,7 @@
     .stage-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
     .stage-card p { font-size: 11px; color: var(--gray); line-height: 1.5; }
     .stage-arrow { display: block; margin-top: 12px; font-size: 11px; color: var(--teal); font-weight: 700; }
+    /* Tips */
     .tips-section { background: var(--light); }
     .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .tip-card { border-radius: 20px; padding: 26px; }
@@ -98,6 +101,7 @@
     .tip-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
     .tip-card p { font-size: 13px; color: #475569; line-height: 1.6; }
     .tip-more { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--teal-dark); text-decoration: none; }
+    /* News */
     .news-section { background: white; }
     .news-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
     .news-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
@@ -109,6 +113,7 @@
     .news-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
     .news-meta { margin-top: 14px; display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--gray); }
     .hot-badge { background: #fee2e2; color: #991b1b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    /* Insight */
     .insight-section { background: var(--light); }
     .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .insight-card { background: white; border-radius: 16px; padding: 26px; box-shadow: var(--shadow); transition: all 0.2s; text-decoration: none; color: var(--navy); display: block; }
@@ -118,6 +123,7 @@
     .insight-card p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
     .insight-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .insight-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+    /* Types */
     .types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .type-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 22px 16px; text-align: center; transition: all 0.2s; cursor: pointer; }
     .type-card:hover { border-color: var(--teal); box-shadow: 0 8px 24px rgba(13,148,136,0.12); transform: translateY(-2px); }
@@ -125,6 +131,7 @@
     .type-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .type-card p { font-size: 12px; color: var(--gray); }
     .type-card .articles { margin-top: 10px; font-size: 11px; color: var(--teal); font-weight: 600; }
+    /* Global */
     .global-section { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; }
     .global-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .global-section .section-tag { background: rgba(167,243,208,0.2); color: #a7f3d0; }
@@ -139,6 +146,7 @@
     .global-map { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; font-size: 64px; }
     .globe-countries { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
     .country-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); padding: 4px 12px; border-radius: 50px; font-size: 12px; }
+    /* Community */
     .community-section { padding: 72px 24px; }
     .community-card { background: linear-gradient(135deg, var(--teal) 0%, #0e7490 100%); border-radius: 28px; padding: 56px; text-align: center; color: white; position: relative; overflow: hidden; }
     .community-card::before { content: '🎗️'; position: absolute; top: -20px; right: 60px; font-size: 110px; opacity: 0.12; }
@@ -148,6 +156,7 @@
     .btn-white { background: white; color: var(--teal-dark); padding: 13px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
     .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
     .btn-outline-white { background: transparent; color: white; padding: 13px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; text-decoration: none; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+    /* Guidebook */
     .guidebook-section { background: #0f172a; padding: 80px 24px; }
     .guidebook-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .guidebook-book { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 36px; position: relative; overflow: hidden; }
@@ -171,6 +180,7 @@
     .nl-stat { text-align: center; }
     .nl-stat strong { display: block; font-size: 20px; font-weight: 700; color: #a7f3d0; }
     .nl-stat span { font-size: 11px; color: rgba(255,255,255,0.5); }
+    /* Disclaimer + Footer */
     .disclaimer { background: #fefce8; border-top: 3px solid #fde68a; padding: 16px 24px; text-align: center; }
     .disclaimer p { font-size: 12px; color: #78350f; max-width: 900px; margin: 0 auto; }
     footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 52px 24px 28px; }
@@ -227,6 +237,7 @@
       <a href="#stage">단계별 가이드</a>
       <a href="#tips">꿀팁</a>
       <a href="#news">최신 뉴스</a>
+      <a href="/savings/">절약정보</a>
       <a href="#community">커뮤니티</a>
       <a href="https://cafe.naver.com/amwinner" class="header-cta" target="_blank">암승모 카페 →</a>
     </nav>
@@ -259,6 +270,7 @@
   </div>
 </div>
 
+<!-- 생존자 이야기 -->
 <section class="survivor-section" id="survivor">
   <div class="container">
     <div class="section-header">
@@ -304,6 +316,7 @@
   </div>
 </section>
 
+<!-- 단계별 가이드 -->
 <section class="quickfind-section" id="stage">
   <div class="container">
     <div class="section-header">
@@ -312,31 +325,31 @@
       <p>내 상황에 딱 맞는 정보만 바로 찾아드립니다</p>
     </div>
     <div class="stage-grid">
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="stage-card">
+      <a href="/tips/" class="stage-card">
         <span class="stage-icon">😰</span>
         <h4>방금 진단받았어요</h4>
         <p>무엇부터 해야 할지 모르겠을 때</p>
         <span class="stage-arrow">진단 초기 가이드 →</span>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="stage-card">
+      <a href="/tips/" class="stage-card">
         <span class="stage-icon">💊</span>
         <h4>치료 중입니다</h4>
         <p>항암·수술·방사선 이기는 법</p>
         <span class="stage-arrow">치료기 꿀팁 →</span>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="stage-card">
+      <a href="/tips/" class="stage-card">
         <span class="stage-icon">🌱</span>
         <h4>치료가 끝났어요</h4>
         <p>일상 복귀 &amp; 재발 방지 루틴</p>
         <span class="stage-arrow">회복기 가이드 →</span>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="stage-card">
+      <a href="/tips/" class="stage-card">
         <span class="stage-icon">💙</span>
         <h4>재발·전이를 알았어요</h4>
         <p>다시 시작하는 희망의 길</p>
         <span class="stage-arrow">동행 케어 →</span>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="stage-card">
+      <a href="/tips/" class="stage-card">
         <span class="stage-icon">🤝</span>
         <h4>가족·보호자입니다</h4>
         <p>내 마음을 지키며 곁에 있는 법</p>
@@ -346,6 +359,7 @@
   </div>
 </section>
 
+<!-- 오늘의 꿀팁 -->
 <section class="tips-section" id="tips">
   <div class="container">
     <div class="section-header">
@@ -359,47 +373,48 @@
         <div class="tip-category">식단·영양</div>
         <h4>항암 중 입맛 없을 때 이것만</h4>
         <p>항암 후 3일째부터 심해지는 메스꺼움. 냉동 유자차·생강사탕·찬물 한 모금이 실제로 효과 있는 이유.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
       <div class="tip-card tip-orange">
         <span class="tip-emoji">💆‍♀️</span>
         <div class="tip-category">마음·정서</div>
         <h4>항암 공포심 낮추는 1분 루틴</h4>
         <p>치료실 가기 전날 밤 잠이 안 온다면. 회원 2,000명이 실제 쓰는 불안 낮추기 방법 3가지.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
       <div class="tip-card tip-purple">
         <span class="tip-emoji">💇‍♀️</span>
         <div class="tip-category">생활 수칙</div>
         <h4>탈모 시작됐을 때 당장 할 것 3가지</h4>
         <p>머리카락이 빠지기 시작한 날. 당황하지 않고 준비할 수 있도록 선배 회원들이 알려드립니다.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
       <div class="tip-card tip-pink">
         <span class="tip-emoji">🏥</span>
         <div class="tip-category">환자지원·제도</div>
         <h4>암 환자가 꼭 챙겨야 할 지원금</h4>
         <p>산정특례, 중증질환 의료비 지원, 긴급복지지원까지. 신청 안 하면 못 받는 돈이 생각보다 많습니다.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
       <div class="tip-card tip-yellow">
         <span class="tip-emoji">🧘‍♀️</span>
         <div class="tip-category">운동·회복</div>
         <h4>항암 중에도 할 수 있는 운동</h4>
         <p>무리하지 않고 면역력을 올리는 하루 15분 루틴. 침대에서 시작해서 동네 한 바퀴까지.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
       <div class="tip-card tip-navy">
         <span class="tip-emoji">💬</span>
         <div class="tip-category">가족·소통</div>
         <h4>가족에게 진단 사실 어떻게 말할까</h4>
         <p>자녀에게, 부모님에게, 직장에게. 상황별로 실제 회원들이 사용한 말과 타이밍을 정리했습니다.</p>
-        <a href="https://cafe.naver.com/amwinner" target="_blank" class="tip-more">자세히 보기 →</a>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 최신 뉴스 -->
 <section class="news-section" id="news">
   <div class="container">
     <div class="section-header">
@@ -443,7 +458,7 @@
           <div class="news-card-body">
             <div class="news-cat">🫁 폐암</div>
             <h3>저선량 CT 폐암 검진, 한국 40대 조기 발견율 2.4배 상승</h3>
-            <p style="font-size:13px;">국립암센터 2024-2025년 검진 데이터 분석. 저선량 CT 수검자에서 1기 폐암 발견율 크게 증가.</p>
+            <p style="font-size:13px;">국립암센터 사과 데 데이터 분석. 저선량 CT 수검자에서 1기 폐암 발견율 크게 증가.</p>
             <div class="news-meta"><span>📅 2026.06.25</span></div>
           </div>
         </div>
@@ -461,6 +476,7 @@
   </div>
 </section>
 
+<!-- 인사이트 라이브러리 -->
 <section class="insight-section" id="library">
   <div class="container">
     <div class="section-header">
@@ -469,7 +485,7 @@
       <p>18만 회원의 경험이 담긴 6개 카테고리 — 매주 새 콘텐츠 업데이트</p>
     </div>
     <div class="insight-grid">
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#ccfbf1;">🧪</div>
         <h4>치료·의학 업데이트</h4>
         <p>최신 치료 정보, 임상시험 동향, 의료 용어를 알기 쉽게 풀어드립니다.</p>
@@ -479,7 +495,7 @@
           <span class="insight-tag" style="background:#ccfbf1; color:#0f766e;">임상시험</span>
         </div>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#dcfce7;">✅</div>
         <h4>생활 수칙</h4>
         <p>감염 예방, 수면 관리, 무리하지 않는 활동까지. 치료 중 일상을 지키는 법.</p>
@@ -489,7 +505,7 @@
           <span class="insight-tag" style="background:#dcfce7; color:#166534;">운동</span>
         </div>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#fff7ed;">🍲</div>
         <h4>식단·영양</h4>
         <p>항암 중 먹어야 할 것, 피해야 할 것. 실제 효과 있었던 식단 레시피.</p>
@@ -499,7 +515,7 @@
           <span class="insight-tag" style="background:#fff7ed; color:#9a3412;">레시피</span>
         </div>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#fefce8;">💛</div>
         <h4>마음·정서</h4>
         <p>불안과 우울을 다스리는 1분 루틴. 가족과 함께 감정을 나누는 방법.</p>
@@ -509,7 +525,7 @@
           <span class="insight-tag" style="background:#fefce8; color:#713f12;">가족소통</span>
         </div>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#f5f3ff;">🧾</div>
         <h4>환자지원·제도</h4>
         <p>산정특례부터 긴급복지지원까지. 신청 안 하면 못 받는 지원금 총정리.</p>
@@ -519,7 +535,7 @@
           <span class="insight-tag" style="background:#f5f3ff; color:#5b21b6;">복지제도</span>
         </div>
       </a>
-      <a href="https://cafe.naver.com/amwinner" target="_blank" class="insight-card">
+      <a href="/insight/" class="insight-card">
         <div class="insight-icon-wrap" style="background:#fdf2f8;">📝</div>
         <h4>칼럼·전문가 자료</h4>
         <p>협력 의료기관 의료진이 직접 작성한 칼럼과 검증된 전문가 자료.</p>
@@ -532,6 +548,7 @@
   </div>
 </section>
 
+<!-- 암종별 정보 -->
 <section id="types" style="background: white;">
   <div class="container">
     <div class="section-header">
@@ -552,6 +569,7 @@
   </div>
 </section>
 
+<!-- 글로벌 -->
 <section class="global-section" id="global">
   <div class="container">
     <div class="global-grid">
@@ -585,6 +603,7 @@
   </div>
 </section>
 
+<!-- 커뮤니티 -->
 <section class="community-section" id="community">
   <div class="container">
     <div class="community-card">
@@ -599,6 +618,7 @@
   </div>
 </section>
 
+<!-- 투병 생활 비밀노트 + 뉴스레터 -->
 <section class="guidebook-section" id="guidebook">
   <div class="guidebook-inner">
     <div class="guidebook-book">
