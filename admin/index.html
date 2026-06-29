@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Cancer IT KR - 관리자</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    (function () {
+      var keysToRemove = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (
+          key.indexOf('netlify-cms') === 0 ||
+          key.indexOf('decap-cms') === 0 ||
+          key.indexOf('github-auth') === 0
+        ) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach(function (key) {
+        localStorage.removeItem(key);
+      });
+    })();
+  </script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
