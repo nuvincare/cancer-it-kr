@@ -1,1 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="암 환자와 가족을 위한 희망의 공간. 18년간 18만 명이 함께한 암승모의 실전 노하우, 생존자 이야기, 치료 꿀팁을 매일 업데이트합니다." />
+  <meta name="keywords" content="암, 암 치료, 항암, 면역치료, 표적치료, 암승모, 암승리자, 투병, 암 완치, 생존자" />
+  <meta property="og:title" content="Cancer IT KR - 암 환자와 가족을 위한 희망의 공간" />
+  <meta property="og:description" content="18년간 18만 명이 함께한 암승모의 실전 노하우와 희망 이야기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cancer.it.kr" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cancer.it.kr" />
+  <title>Cancer IT KR | 암 환자와 가족을 위한 희망의 공간</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #0d9488; --teal-dark: #0f766e; --teal-light: #ccfbf1;
+      --navy: #1e293b; --gray: #64748b; --light: #f8fafc; --white: #ffffff;
+      --accent: #ef4444; --orange: #f97316; --purple: #8b5cf6;
+      --pink: #ec4899; --yellow: #eab308; --border: #e2e8f0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans KR', 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; }
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--teal), #0e9f6e); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: 18px; font-weight: 700; color: var(--teal-dark); letter-spacing: -0.5px; }
+    .logo-text span { font-size: 11px; color: var(--gray); }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { text-decoration: none; color: var(--navy); font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: all 0.2s; }
+    nav a:hover { background: var(--teal-light); color: var(--teal-dark); }
+    .header-cta { background: var(--teal); color: var(--white) !important; border-radius: 8px; padding: 8px 18px !important; font-weight: 600 !important; font-size: 13px !important; margin-left: 8px; }
+    .header-cta:hover { background: var(--teal-dark) !important; }
+    .hope-bar { background: linear-gradient(90deg, #0d9488, #0e7490); padding: 18px 24px; }
+    .hope-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hope-label { background: rgba(255,255,255,0.2); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+    .hope-text { color: white; font-size: 14px; font-weight: 400; }
+    .hope-text em { font-style: normal; color: #a7f3d0; font-weight: 700; }
+    .hero { background: linear-gradient(135deg, #0d9488 0%, #0e7490 50%, #1e3a5f 100%); padding: 90px 24px 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 50px; padding: 8px 20px; font-size: 13px; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(26px, 5vw, 50px); font-weight: 900; color: white; line-height: 1.3; margin-bottom: 16px; letter-spacing: -1px; }
+    .hero h1 em { font-style: normal; color: #a7f3d0; }
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 36px; font-weight: 300; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-primary { background: white; color: var(--teal-dark); padding: 15px 32px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+    .btn-secondary { background: transparent; color: white; padding: 15px 32px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .stats-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { text-align: center; padding: 10px 24px; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { display: block; font-size: 26px; font-weight: 700; color: var(--teal-dark); letter-spacing: -1px; }
+    .stat-label { font-size: 12px; color: var(--gray); margin-top: 2px; }
+    section { padding: 72px 24px; }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-tag { display: inline-block; background: var(--teal-light); color: var(--teal-dark); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 50px; margin-bottom: 14px; }
+    .section-header h2 { font-size: clamp(22px, 4vw, 36px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .section-header p { font-size: 15px; color: var(--gray); max-width: 540px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    /* Survivor */
+    .survivor-section { background: var(--light); }
+    .survivor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .survivor-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .survivor-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+    .survivor-badge-wrap { padding: 22px 22px 0; display: flex; gap: 8px; }
+    .survivor-tag { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+    .survivor-body { padding: 14px 22px 24px; }
+    .survivor-emoji { font-size: 38px; margin-bottom: 10px; display: block; }
+    .survivor-quote { font-size: 16px; font-weight: 700; line-height: 1.5; margin-bottom: 12px; color: var(--navy); }
+    .survivor-quote::before { content: '"'; color: var(--teal); font-size: 22px; line-height: 0; vertical-align: -5px; margin-right: 2px; }
+    .survivor-info { font-size: 12px; color: var(--gray); }
+    .survivor-info strong { color: var(--navy); }
+    /* Stage */
+    .quickfind-section { background: white; }
+    .stage-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .stage-card { background: var(--light); border: 2px solid var(--border); border-radius: 20px; padding: 26px 14px; text-align: center; cursor: pointer; transition: all 0.2s; text-decoration: none; color: var(--navy); display: block; }
+    .stage-card:hover { border-color: var(--teal); background: var(--teal-light); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,148,136,0.15); }
+    .stage-icon { font-size: 34px; display: block; margin-bottom: 10px; }
+    .stage-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+    .stage-card p { font-size: 11px; color: var(--gray); line-height: 1.5; }
+    .stage-arrow { display: block; margin-top: 12px; font-size: 11px; color: var(--teal); font-weight: 700; }
+    /* Tips */
+    .tips-section { background: var(--light); }
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tip-card { border-radius: 20px; padding: 26px; }
+    .tip-teal { background: var(--teal-light); }
+    .tip-orange { background: #fff7ed; }
+    .tip-purple { background: #f5f3ff; }
+    .tip-pink { background: #fdf2f8; }
+    .tip-yellow { background: #fefce8; }
+    .tip-navy { background: #f1f5f9; }
+    .tip-emoji { font-size: 30px; margin-bottom: 12px; display: block; }
+    .tip-category { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; color: var(--gray); text-transform: uppercase; }
+    .tip-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .tip-card p { font-size: 13px; color: #475569; line-height: 1.6; }
+    .tip-more { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--teal-dark); text-decoration: none; }
+    /* News */
+    .news-section { background: white; }
+    .news-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+    .news-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .news-card-body { padding: 22px; }
+    .news-cat { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+    .news-card h3 { font-size: 16px; font-weight: 700; line-height: 1.45; margin-bottom: 10px; }
+    .news-card.featured h3 { font-size: 20px; }
+    .news-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    .news-meta { margin-top: 14px; display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--gray); }
+    .hot-badge { background: #fee2e2; color: #991b1b; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    /* Insight */
+    .insight-section { background: var(--light); }
+    .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .insight-card { background: white; border-radius: 16px; padding: 26px; box-shadow: var(--shadow); transition: all 0.2s; text-decoration: none; color: var(--navy); display: block; }
+    .insight-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+    .insight-icon-wrap { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; }
+    .insight-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .insight-card p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
+    .insight-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .insight-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+    /* Types */
+    .types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .type-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 22px 16px; text-align: center; transition: all 0.2s; cursor: pointer; }
+    .type-card:hover { border-color: var(--teal); box-shadow: 0 8px 24px rgba(13,148,136,0.12); transform: translateY(-2px); }
+    .type-icon { width: 56px; height: 56px; background: var(--teal-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px; }
+    .type-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .type-card p { font-size: 12px; color: var(--gray); }
+    .type-card .articles { margin-top: 10px; font-size: 11px; color: var(--teal); font-weight: 600; }
+    /* Global */
+    .global-section { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; }
+    .global-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .global-section .section-tag { background: rgba(167,243,208,0.2); color: #a7f3d0; }
+    .global-section h2 { color: white; }
+    .global-section .section-header { text-align: left; margin-bottom: 28px; }
+    .global-section .section-header p { color: rgba(255,255,255,0.7); max-width: 100%; }
+    .global-features { display: flex; flex-direction: column; gap: 16px; }
+    .global-feature { display: flex; gap: 14px; align-items: flex-start; }
+    .feat-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .feat-text h5 { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: white; }
+    .feat-text p { font-size: 12px; color: rgba(255,255,255,0.6); }
+    .global-map { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; font-size: 64px; }
+    .globe-countries { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+    .country-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); padding: 4px 12px; border-radius: 50px; font-size: 12px; }
+    /* Community */
+    .community-section { padding: 72px 24px; }
+    .community-card { background: linear-gradient(135deg, var(--teal) 0%, #0e7490 100%); border-radius: 28px; padding: 56px; text-align: center; color: white; position: relative; overflow: hidden; }
+    .community-card::before { content: '🎗️'; position: absolute; top: -20px; right: 60px; font-size: 110px; opacity: 0.12; }
+    .community-card h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
+    .community-card p { font-size: 15px; opacity: 0.85; max-width: 520px; margin: 0 auto 30px; }
+    .community-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: white; color: var(--teal-dark); padding: 13px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-outline-white { background: transparent; color: white; padding: 13px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; text-decoration: none; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+    /* Guidebook */
+    .guidebook-section { background: #0f172a; padding: 80px 24px; }
+    .guidebook-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .guidebook-book { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 36px; position: relative; overflow: hidden; }
+    .guidebook-book::before { content: '📖'; position: absolute; right: -10px; bottom: -10px; font-size: 90px; opacity: 0.08; }
+    .guidebook-tag { display: inline-block; background: #ef4444; color: white; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+    .guidebook-book h3 { font-size: 20px; font-weight: 700; color: white; line-height: 1.4; margin-bottom: 14px; }
+    .guidebook-book p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 18px; }
+    .guidebook-items { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+    .guidebook-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.8); }
+    .guidebook-item::before { content: '✓'; color: #a7f3d0; font-weight: 700; flex-shrink: 0; }
+    .btn-red { background: #ef4444; color: white; padding: 13px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-red:hover { background: #dc2626; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(239,68,68,0.4); }
+    .newsletter-right h3 { font-size: 24px; font-weight: 700; color: white; line-height: 1.4; margin-bottom: 10px; }
+    .newsletter-right .sub-text { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 26px; line-height: 1.7; }
+    .newsletter-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .nl-feat { display: flex; align-items: center; gap: 12px; }
+    .nl-feat-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .nl-feat-text { font-size: 13px; color: rgba(255,255,255,0.75); }
+    .nl-feat-text strong { color: white; display: block; font-size: 13px; margin-bottom: 1px; }
+    .newsletter-stats { display: flex; gap: 24px; margin-top: 22px; }
+    .nl-stat { text-align: center; }
+    .nl-stat strong { display: block; font-size: 20px; font-weight: 700; color: #a7f3d0; }
+    .nl-stat span { font-size: 11px; color: rgba(255,255,255,0.5); }
+    /* Disclaimer + Footer */
+    .disclaimer { background: #fefce8; border-top: 3px solid #fde68a; padding: 16px 24px; text-align: center; }
+    .disclaimer p { font-size: 12px; color: #78350f; max-width: 900px; margin: 0 auto; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 52px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .logo-text strong { color: #a7f3d0; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,0.5); }
+    .footer-desc { font-size: 13px; line-height: 1.8; margin-top: 14px; color: rgba(255,255,255,0.5); }
+    .footer-col h5 { font-size: 13px; font-weight: 700; color: white; margin-bottom: 14px; }
+    .footer-col a { display: block; text-decoration: none; color: rgba(255,255,255,0.5); font-size: 13px; padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #a7f3d0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: white; }
+    @media (max-width: 1024px) {
+      .stage-grid { grid-template-columns: repeat(3, 1fr); }
+      .guidebook-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .news-grid, .survivor-grid { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .global-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .community-card { padding: 36px 22px; }
+      .tips-grid, .insight-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .stage-grid { grid-template-columns: repeat(2, 1fr); }
+      .tips-grid, .insight-grid, .types-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 64px 24px; }
+      .community-btns { flex-direction: column; align-items: center; }
+      .newsletter-stats { gap: 14px; }
+      /* 모바일 폰트 크기 확대 */
+      body { font-size: 17px; line-height: 1.8; }
+      .hero p { font-size: 17px; }
+      .hero-badge { font-size: 14px; }
+      .section-header p { font-size: 16px; }
+      .section-tag { font-size: 13px; }
+      .tip-card h4, .survivor-quote { font-size: 17px; }
+      .tip-card p, .news-card p, .insight-card p { font-size: 15px; }
+      .tip-category, .news-cat { font-size: 12px; }
+      .tip-more { font-size: 14px; }
+      .stage-card h4 { font-size: 15px; }
+      .stage-card p { font-size: 13px; }
+      .stage-arrow { font-size: 13px; }
+      .type-card h4 { font-size: 15px; }
+      .type-card p { font-size: 13px; }
+      .type-card .articles { font-size: 13px; }
+      .stat-num { font-size: 24px; }
+      .stat-label { font-size: 13px; }
+      .news-card h3 { font-size: 16px; }
+      .news-card.featured h3 { font-size: 18px; }
+      .news-meta { font-size: 13px; }
+      .insight-card h4 { font-size: 16px; }
+      .insight-card p { font-size: 14px; }
+      .insight-tag { font-size: 12px; }
+      .survivor-info { font-size: 13px; }
+      .guidebook-item { font-size: 15px; }
+      .guidebook-book p { font-size: 14px; }
+      .feat-text h5 { font-size: 15px; }
+      .feat-text p { font-size: 13px; }
+      .country-tag { font-size: 13px; }
+      .community-card h2 { font-size: 22px; }
+      .community-card p { font-size: 15px; }
+      .footer-col a { font-size: 14px; }
+      .footer-desc { font-size: 14px; }
+      .footer-bottom { font-size: 13px; flex-direction: column; gap: 12px; text-align: center; }
+      .disclaimer p { font-size: 13px; }
+      .nl-feat-text { font-size: 14px; }
+      .nl-feat-text strong { font-size: 15px; }
+      .hope-text { font-size: 15px; }
+    }
+  </style>
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Cancer IT KR","alternateName":"암승모 암 정보 플랫폼","url":"https://cancer.it.kr/","description":"2007년부터 18만 명이 함께한 암승모 커뮤니티. 위암·폐암·유방암·대장암·간암·갑상선암 등 암종별 최신 정보를 제공합니다.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://cancer.it.kr/?s={search_term_string}"},"query-input":"required name=search_term_string"},"publisher":{"@type":"Organization","name":"Cancer IT KR","url":"https://cancer.it.kr/","logo":{"@type":"ImageObject","url":"https://cancer.it.kr/og-image.png","width":1200,"height":630}}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"MedicalWebPage","name":"암 환자와 가족을 위한 희망의 공간 — 암승모 18만 커뮤니티","url":"https://cancer.it.kr/","description":"위암·폐암·유방암·대장암·간암·갑상선암 등 암종별 최신 정보, 항암 부작용 관리법, 실전 꿀팁, 생존자 이야기를 매일 업데이트합니다.","inLanguage":"ko","medicalAudience":{"@type":"MedicalAudience","audienceType":"Patient"},"publisher":{"@type":"Organization","name":"Cancer IT KR","url":"https://cancer.it.kr/"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Cancer IT KR","alternateName":"암승모","url":"https://cancer.it.kr/","logo":"https://cancer.it.kr/og-image.png","foundingDate":"2007","description":"2007년 설립된 암승리자모임(암승모) — 국내 최대 암 환자 커뮤니티 기반 의료 정보 플랫폼","sameAs":["https://cafe.naver.com/cancerblockchain"]}
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">🎗️</div>
+      <div class="logo-text">
+        <strong>Cancer IT KR</strong>
+        <span>암 환자와 가족을 위한 희망의 공간</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#survivor">생존자 이야기</a>
+      <a href="#stage">단계별 가이드</a>
+      <a href="#tips">꿀팁</a>
+      <a href="#news">최신 뉴스</a>
+      <a href="/savings/">절약정보</a>
+      <a href="#community">커뮤니티</a>
+      <a href="https://cafe.naver.com/amwinner" class="header-cta" target="_blank">암승모 카페 →</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hope-bar">
+  <div class="hope-inner">
+    <span class="hope-label">🌟 오늘의 희망</span>
+    <p class="hope-text">"암은 내 인생을 빼앗아 간 게 아니라, <em>진짜 소중한 것이 무엇인지 알려줬습니다.</em>" — 유방암 3기 완치 후 7년차, 53세 회원</p>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-badge">🎗️ 18년간 18만 명이 함께한 암승모</div>
+  <h1>막막한 지금,<br /><em>당신 곁에 있겠습니다</em></h1>
+  <p>암 진단 첫날부터 완치 그 너머까지.<br />혼자가 아닌 18만 명과 함께 걷는 길이 있습니다.</p>
+  <div class="hero-btns">
+    <a href="#stage" class="btn-primary">지금 내 상황 바로가기</a>
+    <a href="#guidebook" class="btn-secondary">📖 무료 비밀노트 받기</a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">18년+</span><div class="stat-label">커뮤니티 운영 역사</div></div>
+    <div class="stat-item"><span class="stat-num">18만+</span><div class="stat-label">함께한 암 환우 가족</div></div>
+    <div class="stat-item"><span class="stat-num">매일</span><div class="stat-label">새로운 희망 이야기</div></div>
+    <div class="stat-item"><span class="stat-num">무료</span><div class="stat-label">투병 생활 비밀노트</div></div>
+  </div>
+</div>
+
+<!-- 생존자 이야기 -->
+<section class="survivor-section" id="survivor">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">💪 Real Stories</span>
+      <h2>그들도 당신과 똑같이 막막했습니다</h2>
+      <p>암승모 회원들의 진짜 이야기. 통계가 아닌 사람의 이야기가 희망입니다.</p>
+    </div>
+    <div class="survivor-grid">
+      <div class="survivor-card">
+        <div class="survivor-badge-wrap">
+          <span class="survivor-tag" style="background:#dcfce7; color:#166534;">✅ 완치</span>
+          <span class="survivor-tag" style="background:#fce7f3; color:#9d174d;">유방암 3기</span>
+        </div>
+        <div class="survivor-body">
+          <span class="survivor-emoji">🏃‍♀️</span>
+          <p class="survivor-quote">항암 6번을 버티고 나니, 제가 얼마나 강한 사람인지 처음 알았어요</p>
+          <p class="survivor-info"><strong>김○○님, 49세</strong> · 진단 후 2년 8개월 · 현재 마라톤 취미</p>
+        </div>
+      </div>
+      <div class="survivor-card">
+        <div class="survivor-badge-wrap">
+          <span class="survivor-tag" style="background:#dcfce7; color:#166534;">✅ 완치</span>
+          <span class="survivor-tag" style="background:#e0f2fe; color:#075985;">위암 2기</span>
+        </div>
+        <div class="survivor-body">
+          <span class="survivor-emoji">👨‍👧</span>
+          <p class="survivor-quote">딸 결혼식을 꼭 보겠다고 버텼어요. 지난 봄, 아버지로서 그 자리에 섰습니다</p>
+          <p class="survivor-info"><strong>박○○님, 62세</strong> · 수술 후 4년 · 현재 손자 돌보는 중</p>
+        </div>
+      </div>
+      <div class="survivor-card">
+        <div class="survivor-badge-wrap">
+          <span class="survivor-tag" style="background:#fef3c7; color:#92400e;">🔥 투병 중</span>
+          <span class="survivor-tag" style="background:#fef3c7; color:#92400e;">폐암 4기</span>
+        </div>
+        <div class="survivor-body">
+          <span class="survivor-emoji">✍️</span>
+          <p class="survivor-quote">4기라는 숫자보다 오늘 하루를 잘 사는 게 더 중요하다는 걸 이제 압니다</p>
+          <p class="survivor-info"><strong>이○○님, 57세</strong> · 표적치료 14개월째 · 매일 일기 작성 중</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 단계별 가이드 -->
+<section class="quickfind-section" id="stage">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">🗺️ 단계별 가이드</span>
+      <h2>지금 어느 단계에 계세요?</h2>
+      <p>내 상황에 딱 맞는 정보만 바로 찾아드립니다</p>
+    </div>
+    <div class="stage-grid">
+      <a href="/tips/" class="stage-card">
+        <span class="stage-icon">😰</span>
+        <h4>방금 진단받았어요</h4>
+        <p>무엇부터 해야 할지 모르겠을 때</p>
+        <span class="stage-arrow">진단 초기 가이드 →</span>
+      </a>
+      <a href="/tips/" class="stage-card">
+        <span class="stage-icon">💊</span>
+        <h4>치료 중입니다</h4>
+        <p>항암·수술·방사선 이기는 법</p>
+        <span class="stage-arrow">치료기 꿀팁 →</span>
+      </a>
+      <a href="/tips/" class="stage-card">
+        <span class="stage-icon">🌱</span>
+        <h4>치료가 끝났어요</h4>
+        <p>일상 복귀 &amp; 재발 방지 루틴</p>
+        <span class="stage-arrow">회복기 가이드 →</span>
+      </a>
+      <a href="/tips/" class="stage-card">
+        <span class="stage-icon">💙</span>
+        <h4>재발·전이를 알았어요</h4>
+        <p>다시 시작하는 희망의 길</p>
+        <span class="stage-arrow">동행 케어 →</span>
+      </a>
+      <a href="/tips/" class="stage-card">
+        <span class="stage-icon">🤝</span>
+        <h4>가족·보호자입니다</h4>
+        <p>내 마음을 지키며 곁에 있는 법</p>
+        <span class="stage-arrow">보호자 가이드 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 오늘의 꿀팁 -->
+<section class="tips-section" id="tips">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">💡 오늘의 꿀팁</span>
+      <h2>지금 당장 써먹을 수 있는 정보</h2>
+      <p>18만 회원의 실전 경험에서 나온 진짜 노하우</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card tip-teal">
+        <span class="tip-emoji">🍚</span>
+        <div class="tip-category">식단·영양</div>
+        <h4>항암 중 입맛 없을 때 이것만</h4>
+        <p>항암 후 3일째부터 심해지는 메스꺼움. 냉동 유자차·생강사탕·찬물 한 모금이 실제로 효과 있는 이유.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+      <div class="tip-card tip-orange">
+        <span class="tip-emoji">💆‍♀️</span>
+        <div class="tip-category">마음·정서</div>
+        <h4>항암 공포심 낮추는 1분 루틴</h4>
+        <p>치료실 가기 전날 밤 잠이 안 온다면. 회원 2,000명이 실제 쓰는 불안 낮추기 방법 3가지.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+      <div class="tip-card tip-purple">
+        <span class="tip-emoji">💇‍♀️</span>
+        <div class="tip-category">생활 수칙</div>
+        <h4>탈모 시작됐을 때 당장 할 것 3가지</h4>
+        <p>머리카락이 빠지기 시작한 날. 당황하지 않고 준비할 수 있도록 선배 회원들이 알려드립니다.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+      <div class="tip-card tip-pink">
+        <span class="tip-emoji">🏥</span>
+        <div class="tip-category">환자지원·제도</div>
+        <h4>암 환자가 꼭 챙겨야 할 지원금</h4>
+        <p>산정특례, 중증질환 의료비 지원, 긴급복지지원까지. 신청 안 하면 못 받는 돈이 생각보다 많습니다.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+      <div class="tip-card tip-yellow">
+        <span class="tip-emoji">🧘‍♀️</span>
+        <div class="tip-category">운동·회복</div>
+        <h4>항암 중에도 할 수 있는 운동</h4>
+        <p>무리하지 않고 면역력을 올리는 하루 15분 루틴. 침대에서 시작해서 동네 한 바퀴까지.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+      <div class="tip-card tip-navy">
+        <span class="tip-emoji">💬</span>
+        <div class="tip-category">가족·소통</div>
+        <h4>가족에게 진단 사실 어떻게 말할까</h4>
+        <p>자녀에게, 부모님에게, 직장에게. 상황별로 실제 회원들이 사용한 말과 타이밍을 정리했습니다.</p>
+        <a href="/tips/" class="tip-more">자세히 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 최신 뉴스 -->
+<section class="news-section" id="news">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">📰 Latest News</span>
+      <h2>오늘 꼭 알아야 할 암 의료 소식</h2>
+      <p>전 세계 주요 의학 저널과 연구기관의 최신 소식을 알기 쉽게 전달합니다</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card featured">
+        <div style="background: linear-gradient(135deg, #ccfbf1, #a7f3d0); height:230px; display:flex; align-items:center; justify-content:center; font-size:68px;">🧬</div>
+        <div class="news-card-body">
+          <div class="news-cat">🔬 면역 항암 치료 <span class="hot-badge">HOT</span></div>
+          <h3>PD-L1 면역치료 새 병용요법, 폐암 생존율 38% 향상 — 국제 임상 3상 결과</h3>
+          <p>ASCO 연례학술대회에서 발표된 대규모 임상시험. PD-L1 억제제와 항혈관신생제 병용 시 기존 단독 요법 대비 무진행 생존기간이 유의미하게 연장됐습니다.</p>
+          <div class="news-meta"><span>📅 2026.06.28</span><span>🏥 ASCO 2026</span><span>⏱️ 4분</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="news-card" style="margin-bottom:18px;">
+          <div style="background: linear-gradient(135deg, #fce7f3, #fbcfe8); height:120px; display:flex; align-items:center; justify-content:center; font-size:34px;">🎀</div>
+          <div class="news-card-body">
+            <div class="news-cat">🎀 유방암</div>
+            <h3>조기 유방암, 수술 없이 방사선 단독 치료 가능성 열려</h3>
+            <p style="font-size:13px;">하버드 의대 10년 추적 데이터. 0기~1기 유방암 방사선 단독 치료군과 수술군의 생존율 차이 통계적으로 유의하지 않음.</p>
+            <div class="news-meta"><span>📅 2026.06.27</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <div style="background: linear-gradient(135deg, #e0f2fe, #bae6fd); height:120px; display:flex; align-items:center; justify-content:center; font-size:34px;">💊</div>
+          <div class="news-card-body">
+            <div class="news-cat">🧪 표적 치료</div>
+            <h3>KRAS G12C 표적 신약, 대장암 2차 치료 FDA 허가</h3>
+            <p style="font-size:13px;">'불가능한 표적'으로 여겨졌던 KRAS 단백질을 겨냥한 표적 치료제가 FDA 허가를 획득했습니다.</p>
+            <div class="news-meta"><span>📅 2026.06.26</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="news-card" style="margin-bottom:18px;">
+          <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); height:120px; display:flex; align-items:center; justify-content:center; font-size:34px;">🫁</div>
+          <div class="news-card-body">
+            <div class="news-cat">🫁 폐암</div>
+            <h3>저선량 CT 폐암 검진, 한국 40대 조기 발견율 2.4배 상승</h3>
+            <p style="font-size:13px;">국립암센터 2024-2025년 검진 데이터 분석. 저선량 CT 수검자에서 1기 폐암 발견율 크게 증가.</p>
+            <div class="news-meta"><span>📅 2026.06.25</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <div style="background: linear-gradient(135deg, #ede9fe, #ddd6fe); height:120px; display:flex; align-items:center; justify-content:center; font-size:34px;">🩸</div>
+          <div class="news-card-body">
+            <div class="news-cat">🩸 혈액암</div>
+            <h3>CAR-T 세포 치료, 재발 다발성골수종 완전관해율 71% 달성</h3>
+            <p style="font-size:13px;">다중 치료 실패 후 재발 환자 대상 CAR-T 최신 임상 결과 Blood 저널 게재.</p>
+            <div class="news-meta"><span>📅 2026.06.24</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 인사이트 라이브러리 -->
+<section class="insight-section" id="library">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">📚 인사이트 라이브러리</span>
+      <h2>내가 필요한 주제를 골라보세요</h2>
+      <p>18만 회원의 경험이 담긴 6개 카테고리 — 매주 새 콘텐츠 업데이트</p>
+    </div>
+    <div class="insight-grid">
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#ccfbf1;">🧪</div>
+        <h4>치료·의학 업데이트</h4>
+        <p>최신 치료 정보, 임상시험 동향, 의료 용어를 알기 쉽게 풀어드립니다.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#ccfbf1; color:#0f766e;">항암제</span>
+          <span class="insight-tag" style="background:#ccfbf1; color:#0f766e;">면역치료</span>
+          <span class="insight-tag" style="background:#ccfbf1; color:#0f766e;">임상시험</span>
+        </div>
+      </a>
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#dcfce7;">✅</div>
+        <h4>생활 수칙</h4>
+        <p>감염 예방, 수면 관리, 무리하지 않는 활동까지. 치료 중 일상을 지키는 법.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#dcfce7; color:#166534;">위생관리</span>
+          <span class="insight-tag" style="background:#dcfce7; color:#166534;">수면</span>
+          <span class="insight-tag" style="background:#dcfce7; color:#166534;">운동</span>
+        </div>
+      </a>
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#fff7ed;">🍲</div>
+        <h4>식단·영양</h4>
+        <p>항암 중 먹어야 할 것, 피해야 할 것. 실제 효과 있었던 식단 레시피.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#fff7ed; color:#9a3412;">식이요법</span>
+          <span class="insight-tag" style="background:#fff7ed; color:#9a3412;">영양보충</span>
+          <span class="insight-tag" style="background:#fff7ed; color:#9a3412;">레시피</span>
+        </div>
+      </a>
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#fefce8;">💛</div>
+        <h4>마음·정서</h4>
+        <p>불안과 우울을 다스리는 1분 루틴. 가족과 함께 감정을 나누는 방법.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#fefce8; color:#713f12;">불안관리</span>
+          <span class="insight-tag" style="background:#fefce8; color:#713f12;">우울</span>
+          <span class="insight-tag" style="background:#fefce8; color:#713f12;">가족소통</span>
+        </div>
+      </a>
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#f5f3ff;">🧾</div>
+        <h4>환자지원·제도</h4>
+        <p>산정특례부터 긴급복지지원까지. 신청 안 하면 못 받는 지원금 총정리.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#f5f3ff; color:#5b21b6;">산정특례</span>
+          <span class="insight-tag" style="background:#f5f3ff; color:#5b21b6;">의료비지원</span>
+          <span class="insight-tag" style="background:#f5f3ff; color:#5b21b6;">복지제도</span>
+        </div>
+      </a>
+      <a href="/insight/" class="insight-card">
+        <div class="insight-icon-wrap" style="background:#fdf2f8;">📝</div>
+        <h4>칼럼·전문가 자료</h4>
+        <p>협력 의료기관 의료진이 직접 작성한 칼럼과 검증된 전문가 자료.</p>
+        <div class="insight-tags">
+          <span class="insight-tag" style="background:#fdf2f8; color:#9d174d;">의료진 칼럼</span>
+          <span class="insight-tag" style="background:#fdf2f8; color:#9d174d;">전문정보</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 암종별 정보 -->
+<section id="types" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">🏥 암종별 정보</span>
+      <h2>내 암 종류를 선택하세요</h2>
+      <p>암종별 최신 치료 동향과 생존자 이야기를 모아봤습니다</p>
+    </div>
+    <div class="types-grid">
+      <div class="type-card"><div class="type-icon">🫁</div><h4>폐암</h4><p>표적치료·면역항암</p><div class="articles">정보 124건 →</div></div>
+      <div class="type-card"><div class="type-icon">🎀</div><h4>유방암</h4><p>호르몬치료·수술</p><div class="articles">정보 98건 →</div></div>
+      <div class="type-card"><div class="type-icon">🟤</div><h4>대장암</h4><p>내시경·수술·항암</p><div class="articles">정보 87건 →</div></div>
+      <div class="type-card"><div class="type-icon">🟡</div><h4>위암</h4><p>내시경치료·외과수술</p><div class="articles">정보 76건 →</div></div>
+      <div class="type-card"><div class="type-icon">🫀</div><h4>간암</h4><p>절제술·색전술·소작술</p><div class="articles">정보 65건 →</div></div>
+      <div class="type-card"><div class="type-icon">🩸</div><h4>혈액암</h4><p>CAR-T·조혈모세포이식</p><div class="articles">정보 58건 →</div></div>
+      <div class="type-card"><div class="type-icon">🟣</div><h4>갑상선암</h4><p>방사성요오드·수술</p><div class="articles">정보 54건 →</div></div>
+      <div class="type-card"><div class="type-icon">🔵</div><h4>전립선암</h4><p>로봇수술·호르몬치료</p><div class="articles">정보 49건 →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 글로벌 -->
+<section class="global-section" id="global">
+  <div class="container">
+    <div class="global-grid">
+      <div>
+        <div class="section-header">
+          <span class="section-tag">🌍 글로벌 정보</span>
+          <h2>전 세계 암 소식을<br />한국어로 가장 먼저</h2>
+          <p>미국 NCI, 영국 Cancer Research UK, 일본 국립암센터 등 전 세계 주요 기관의 최신 정보를 알기 쉬운 한국어로 전달합니다.</p>
+        </div>
+        <div class="global-features">
+          <div class="global-feature"><div class="feat-icon">📡</div><div class="feat-text"><h5>실시간 글로벌 정보 수집</h5><p>미국·유럽·일본 주요 암 기관 보도자료 매일 모니터링</p></div></div>
+          <div class="global-feature"><div class="feat-icon">🔤</div><div class="feat-text"><h5>쉬운 한국어로 번역</h5><p>의학 용어를 환자 눈높이에 맞게 풀어 전달</p></div></div>
+          <div class="global-feature"><div class="feat-icon">✅</div><div class="feat-text"><h5>의료법 준수 · 팩트 검증</h5><p>과대광고 없는 검증된 정보만 제공</p></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="global-map">🌏
+          <div class="globe-countries">
+            <span class="country-tag">🇺🇸 미국 NCI</span>
+            <span class="country-tag">🇬🇧 Cancer Research UK</span>
+            <span class="country-tag">🇩🇪 DKFZ</span>
+            <span class="country-tag">🇯🇵 국립암센터</span>
+            <span class="country-tag">🌍 WHO IARC</span>
+            <span class="country-tag">🔬 ASCO</span>
+            <span class="country-tag">🏥 ESMO</span>
+            <span class="country-tag">📊 AACR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 커뮤니티 -->
+<section class="community-section" id="community">
+  <div class="container">
+    <div class="community-card">
+      <div>🎗️</div>
+      <h2>혼자 싸우지 않아도 됩니다</h2>
+      <p>2007년부터 18년간 18만 명이 함께한 암승모. 지금 이 순간도 누군가가 당신의 이야기를 기다리고 있습니다.</p>
+      <div class="community-btns">
+        <a href="https://cafe.naver.com/amwinner" target="_blank" class="btn-white">🏠 암승모 카페 방문하기</a>
+        <a href="#guidebook" class="btn-outline-white">📖 무료 비밀노트 받기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 투병 생활 비밀노트 + 뉴스레터 -->
+<section class="guidebook-section" id="guidebook">
+  <div class="guidebook-inner">
+    <div class="guidebook-book">
+      <span class="guidebook-tag">🎁 무료 배포</span>
+      <h3>암 진단 후 막막할 때<br />꼭 읽어야 할 필독서</h3>
+      <p>18년간 암승모 선배 환우님들이 직접 겪으며 얻은 생생한 노하우. 인터넷에 떠도는 가벼운 정보가 아닙니다.</p>
+      <div class="guidebook-items">
+        <div class="guidebook-item">암 진단 직후 심리적 혼란 극복하는 현실적인 방첕</div>
+        <div class="guidebook-item">수술·항암·방사선 — 치료 옵션을 제대로 이해하는 법</div>
+        <div class="guidebook-item">항암 중 영양 관리와 식이요법 핵심 노하우</div>
+        <div class="guidebook-item">가족에게 진단 사실을 전하는 최선의 타이밍과 방법</div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpN1jbpwZs-MY2V6eQcQG_EqGZ5MmsBDCdjbzchL28IE-HuQ/viewform?usp=dialog" target="_blank" class="btn-red">📖 투병 생활 비밀노트 무료로 받기 →</a>
+    </div>
+    <div class="newsletter-right">
+      <h3>18만 명이 함께 만든<br />암승모 뉴스레터</h3>
+      <p class="sub-text">매주 한 번, 이번 주에 꼭 알아야 할 암 관련 정보를 깔끔하게 정리해 이메일로 보내드립니다.</p>
+      <div class="newsletter-features">
+        <div class="nl-feat">
+          <div class="nl-feat-icon">🔬</div>
+          <div class="nl-feat-text"><strong>이번 주 핵심 의료 뉴스</strong>복잡한 의학 뉴스를 3줄로 요약</div>
+        </div>
+        <div class="nl-feat">
+          <div class="nl-feat-icon">💡</div>
+          <div class="nl-feat-text"><strong>실전 꿀팁 1개</strong>당장 써먹을 수 있는 생활 노하우</div>
+        </div>
+        <div class="nl-feat">
+          <div class="nl-feat-icon">💪</div>
+          <div class="nl-feat-text"><strong>이번 주 희망 이야기</strong>회원의 실제 투병·완치 경험담</div>
+        </div>
+        <div class="nl-feat">
+          <div class="nl-feat-icon">🧾</div>
+          <div class="nl-feat-text"><strong>놓치면 손해인 지원 정보</strong>이번 달 신청 가능한 의료비 지원</div>
+        </div>
+      </div>
+      <a href="https://forms.gle/tFzzgKqGtTHUw5eP8" target="_blank" style="display:inline-block; background:#0d9488; color:white; padding:13px 28px; border-radius:50px; font-size:14px; font-weight:700; text-decoration:none;">✉️ 뉴스레터 무료 구독하기 →</a>
+      <div class="newsletter-stats">
+        <div class="nl-stat"><strong>18만+</strong><span>함께한 회원</span></div>
+        <div class="nl-stat"><strong>18년</strong><span>운영 역사</span></div>
+        <div class="nl-stat"><strong>무료</strong><span>완전 무료</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <p>⚠️ 본 사이트의 모든 의료 정보는 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다. 건강 관련 결정은 반드시 담당 의료진과 상담 후 진행하시기 바랍니다.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🎗️</div>
+          <div class="logo-text"><strong>Cancer IT KR</strong><span>암 환자와 가족을 위한 희망의 공간</span></div>
+        </div>
+        <p class="footer-desc">2007년부터 암 환자와 가족의 곁을 지켜온 빅터강 매니저가 이끄는 글로벌 암 의료 정보 플랫폼.</p>
+      </div>
+      <div class="footer-col">
+        <h5>단계별 가이드</h5>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">진단 초기</a>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">치료 중</a>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">치료 종료 후</a>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">재발·전이</a>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">보호자 과정</a>
+      </div>
+      <div class="footer-col">
+        <h5>커뮤니티</h5>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">암승모 네이버 카페</a>
+        <a href="https://cafe.naver.com/amwinner" target="_blank">생존자 이야기</a>
+        <a href="https://forms.gle/tFzzgKqGtTHUw5eP8" target="_blank">뉴스레터 구독</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpN1jbpwZs-MY2V6eQcQG_EqGZ5MmsBDCdjbzchL28IE-HuQ/viewform?usp=dialog" target="_blank">비밀노트 신청</a>
+      </div>
+      <div class="footer-col">
+        <h5>사이트</h5>
+        <a href="#">소개</a>
+        <a href="#">광고·제휴 문의</a>
+        <a href="/copyright.html">저작권 안내</a>
+        <a href="#">이용약관</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Cancer IT KR (cancer.it.kr) · 빅터강 매니저 · All rights reserved.</p>
+      <div style="display:flex; gap:16px;">
+        <a href="/copyright.html">저작권 안내</a>
+        <a href="#">이용약관</a>
+        <a href="mailto:kangnw2023@gmail.com">문의하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+if(window.netlifyIdentity){
+  window.netlifyIdentity.on("init",function(u){
+    if(!u){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}
+  });
+}
+</script>
+</body>
+</html>
