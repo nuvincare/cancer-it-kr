@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ë³´í¸ì ê°ì´ë | Cancer IT KR</title>
+  <meta name="description" content="ê°ì¡±Â·ë³´í¸ìë¥¼ ìí ì¤ì  ê°ì´ë. ê°ë³ ìì¤í ë§ë¤ê¸°, ëíë², ë©í ì¼ì´, íì  ì§ìê¹ì§ â ëë¥¼ ìì§ ìê³  ê³ì ìë ë².">
+  <link rel="canonical" href="https://cancer.it.kr/guide-caregiver.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { background: #0d3d2a; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-weight: 900; font-size: 1rem; }
+    .nav-logo span { color: #7ee8a2; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500; }
+    .nav-links a:hover { color: #7ee8a2; }
+    .nav-cafe { background: #7ee8a2; color: #0d3d2a !important; padding: 6px 14px; border-radius: 20px; font-weight: 700 !important; }
+
+    .hero { background: linear-gradient(135deg, #7d4a00 0%, #d68910 60%, #e59866 100%); padding: 60px 24px 50px; text-align: center; color: #fff; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); }
+    .stage-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.88); max-width: 560px; margin: 0 auto 28px; }
+    .hero-meta { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 56px 0; }
+    .section-intro { text-align: center; margin-bottom: 40px; }
+    .section-intro h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; color: #0d3d2a; }
+    .section-intro p { color: #555; font-size: 0.95rem; }
+
+    .doctor-quote { background: linear-gradient(135deg, #fdf6e8, #fdf0e0); border-radius: 16px; padding: 28px 32px; margin-bottom: 36px; text-align: center; }
+    .doctor-quote p { font-size: 0.95rem; color: #555; line-height: 1.8; font-style: italic; }
+    .doctor-quote strong { color: #7d4a00; }
+
+    .guide-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .guide-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .guide-icon { font-size: 2rem; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 14px; flex-shrink: 0; }
+    .guide-icon.orange { background: #fdf6f0; }
+    .guide-icon.green { background: #f0fdf4; }
+    .guide-icon.blue { background: #f0f4fd; }
+    .guide-icon.purple { background: #f8f0fd; }
+    .guide-card-title { font-size: 1.15rem; font-weight: 900; color: #1a1a1a; margin-bottom: 4px; }
+    .guide-card-sub { font-size: 0.82rem; color: #888; font-weight: 500; }
+    .guide-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .guide-items li { display: flex; gap: 12px; align-items: flex-start; }
+    .guide-items li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #d68910; flex-shrink: 0; margin-top: 9px; }
+    .guide-items li strong { color: #d68910; }
+    .guide-items p { font-size: 0.93rem; color: #444; }
+
+    .dialogue-box { background: #f9f9f9; border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .dialogue-box .do { color: #27ae60; font-weight: 700; margin-bottom: 8px; font-size: 0.88rem; }
+    .dialogue-box .dont { color: #e74c3c; font-weight: 700; margin-bottom: 8px; font-size: 0.88rem; }
+    .dialogue-box p { font-size: 0.9rem; color: #444; margin: 4px 0; }
+
+    .tip-box { background: #fdf6f0; border-left: 4px solid #d68910; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; color: #555; }
+    .tip-box strong { color: #7d4a00; }
+
+    .cta-section { background: linear-gradient(135deg, #0d3d2a, #1a6b48); padding: 56px 24px; text-align: center; color: #fff; }
+    .cta-section h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
+    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #7ee8a2; color: #0d3d2a; padding: 14px 28px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; transition: transform .2s; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; display: inline-block; }
+
+    .stage-nav { background: #f7f9f7; padding: 40px 24px; }
+    .stage-nav h3 { text-align: center; font-size: 1rem; font-weight: 700; color: #555; margin-bottom: 24px; }
+    .stage-grid { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 780px; margin: 0 auto; }
+    .stage-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 18px; border-radius: 12px; border: 2px solid #e0e0e0; background: #fff; font-size: 0.8rem; font-weight: 700; color: #555; transition: all .2s; min-width: 100px; }
+    .stage-btn:hover { border-color: #d68910; color: #d68910; }
+    .stage-btn.active { border-color: #d68910; background: #fdf6f0; color: #d68910; }
+    .stage-btn span { font-size: 1.4rem; }
+
+    footer { background: #0d3d2a; color: rgba(255,255,255,0.7); padding: 28px 24px; text-align: center; font-size: 0.8rem; line-height: 2; }
+    footer a { color: rgba(255,255,255,0.6); margin: 0 8px; }
+    footer a:hover { color: #7ee8a2; }
+    .disclaimer { background: #f9f9f9; border-top: 1px solid #eee; padding: 20px 24px; text-align: center; font-size: 0.78rem; color: #999; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 20px; }
+      .guide-card { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://cancer.it.kr/" class="nav-logo">ðï¸ <span>Cancer IT KR</span></a>
+  <div class="nav-links">
+    <a href="https://cancer.it.kr/#stage">ë¨ê³ë³ ê°ì´ë</a>
+    <a href="https://cancer.it.kr/tips/">ê¿í</a>
+    <a href="https://cancer.it.kr/savings/">ì ì½ì ë³´</a>
+    <a href="https://cafe.naver.com/amwinner" class="nav-cafe">ìì¹ëª¨ ì¹´í â</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="https://cancer.it.kr/">í</a> âº ë¨ê³ë³ ê°ì´ë âº ë³´í¸ì</div>
+  <div class="stage-badge">ð¤ Stage 5 Â· ê°ì¡±Â·ë³´í¸ì</div>
+  <h1>ëë¥¼ ìì§ ìê³ <br>íì ê³ì ìë ë²</h1>
+  <p>ë¹ì ë íììëë¤. ë³´í¸ìê° ê±´ê°í´ì¼ íìë ìì ì ììµëë¤. ì¤ë§í¸í ê°ë³ì ê¸°ì ì ìë ¤ëë¦½ëë¤.</p>
+  <div class="hero-meta">â» ë³¸ ì ë³´ë êµì¡ ëª©ì ì´ë©°, ìë£ ê²°ì ì ë°ëì ë´ë¹ ìë£ì§ê³¼ ìë´íì¸ì.</div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-intro">
+      <h2>ë³´í¸ì íµì¬ ê°ì´ë 4ê°ì§</h2>
+    </div>
+
+    <div class="doctor-quote">
+      <p>"ì§ë£ì¤ ë¬¸ì ì´ê³  ë¤ì´ì¬ ë, íìë³´ë¤ ë ììì´ ëì ì¬ëì´ ììµëë¤. ë°ë¡ ë³´í¸ììëë¤.<br>ìì 'ê°ì¡±ë³'ìëë¤. <strong>ë¹ì ì´ íë³µí´ì¼ íìë ìì ì ììµëë¤.</strong><br>ì´ê²ì ì´ê¸°ì¬ì´ ìëë¼, ê°ì¥ ê³¼íì ì¸ ê°ë³ ì ëµìëë¤."</p>
+    </div>
+
+    <!-- 1. ê°ë³ ìì¤í -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon orange">ð</div>
+        <div>
+          <div class="guide-card-title">ê°ë³ë ìì¤íìëë¤ â ê°ì´ ìë ê¸°ë¡ì¼ë¡</div>
+          <div class="guide-card-sub">ê°ë³ ì¼ì§ Â· ì¤ë§í¸ ê°ë³ ëêµ¬</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>ê°ë³ ì¼ì§ë¥¼ ê¸°ë¡íì¸ì.</strong> ì²´ì¨, ë°°ë³ íì, ìì¬ë, ë³µì© ì½ ìê°ì ë§¤ì¼ ê¸°ë¡íë©´ ì¦ì ë³íë¥¼ ë¹¨ë¦¬ ììì± ì ìê³ , ì§ë£ ì ìì¬ìê² ì íí ì ë³´ë¥¼ ì ë¬í  ì ììµëë¤. ì¤ë§í¸í° ë©ëª¨ë ë¸ì ì±ì¼ë¡ ì¶©ë¶í©ëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ì½ ë¨¹ì ìê° ìëì ì¤ì íì¸ì.</strong> í­ì ê´ë ¨ ì½ì ë³µì© ìê°ì´ ì¤ìí©ëë¤. ì¤ë§í¸í° ìëì ì½ ì´ë¦ê³¼ í¨ê» ì¤ì í´ëë©´ ë¹ ë¨ë¦¬ì§ ììµëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ë³ì ëí ìë¹ì¤ë¥¼ íì©íì¸ì.</strong> ë§¤ë² ì§ì  ëííê¸° ì´ë ¤ì´ ê²½ì°, ì§ì­ì¬í ì íì ì§ì ìë¹ì¤ë ë´ì¬ ì°ê³ ë³ì ëí ìë¹ì¤ë¥¼ íì©í  ì ììµëë¤. ë³ì ì¬íì¬ìíì ë¬¸ìí´ë³´ì¸ì.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2. ëíë² -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon green">ð¬</div>
+        <div>
+          <div class="guide-card-title">íììì ëíë² â ìì²ë°ì§ ìë ìíµ</div>
+          <div class="guide-card-sub">ê³µê° ëí Â· ì§ì¦ ëì²ë²</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>ê³µê° ë¨¼ì , í´ê²°ì±ì ëì¤ì.</strong> íìê° íë¤ë¤ê³  í  ë "ë¤ ê´ì°®ì ê±°ì¼" "íë´" ëì  ê³µê°íë ë§ì´ ë í¨ê³¼ì ìëë¤.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="dialogue-box">
+        <div class="dont">â í¼íì¸ì</div>
+        <p>"íë´ì¸ì, ì ë  ê±°ìì." / "ê¸ì ì ì¼ë¡ ìê°íì¸ì."</p>
+        <div class="do" style="margin-top:12px;">â ì´ë ê² ë§í´ë³´ì¸ì</div>
+        <p>"ì¤ë ë§ì´ íë¤ìì§? ë´ê° ìì ììê²." / "ì§ê¸ ì´ëê° ì ì¼ ë¶í¸í´ì?"</p>
+      </div>
+      <ul class="guide-items" style="margin-top:16px;">
+        <li>
+          <div>
+            <p><strong>íìì ì§ì¦ê³¼ íë 'ë'ë¥¼ í¥í ê² ìëëë¤.</strong> ëª¸ì´ ìíê³  ë¶ìíë©´ ê°ì¥ ê°ê¹ì´ ì¬ëìê² ê°ì ì´ ììì§ëë¤. "ëíí ì ì´ë¬ë"ê° ìë "ì¤ë ë§ì´ ìíêµ¬ë"ë¡ í´ìíë©´ ë§ìì´ í¨ì¬ í¸í©ëë¤.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. ë©í ì¼ì´ -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon blue">ð§</div>
+        <div>
+          <div class="guide-card-title">ë³´í¸ì ë©í ì¼ì´ â ì£ì±ê° ë´ë ¤ëê¸°</div>
+          <div class="guide-card-sub">ë²ìì ë°©ì§ Â· ê°ë³ íë¦¬ ë°ì´</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>"ë´ê° ëª» ì±ê²¨ì¤ì ìí ê±´ ìëê¹"ë¼ë ìê°, ë´ë ¤ëì¼ì¸ì.</strong> ìì ëêµ°ê°ì ìëª»ì´ ìëëë¤. ìì±ê°ì ë³´í¸ìì ìëì§ë¥¼ ìì§ìí¤ê³  ê²°êµ­ ê°ë³ ë¥ë ¥ë ë¨ì´ë¨ë¦½ëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ì£¼ 1í 'ê°ë³ íë¦¬ ë°ì´'ë¥¼ ì í¬íì¸ì.</strong> ë¤ë¥¸ ê°ì¡±, ê°ë³ì¸, ì§ì­ì¬í ìë¹ì¤ë¥¼ íì©í´ì ìµì íë£¨ë ìì í ì¬ì¸ì. ì§ì ê°ë¥í ê°ë³ì ìí´ ë°ëì íìí©ëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ë³´í¸ìë ìë´ì ë°ì ì ììµëë¤.</strong> êµ­ê° ì ì ë³´ì¼í°(1577-8899) ëë ë³ì ë´ ì¬ë¦¬ ìë´ íë¡ê·¸ë¨ì íì ê°ì¡±ë ì´ì©í  ì ììµëë¤. í¼ì ê°ë¹íì§ ë§ì¸ì.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="tip-box"><strong>ð¡ íµì¬</strong> ë¹íê¸°ìì ì°ìë§ì¤í¬ë ë´ê° ë¨¼ì  ì°ê³  ìì´ë¥¼ ëìì¼ í©ëë¤. ë³´í¸ìë ë§ì°¬ê°ì§ìëë¤.</div>
+    </div>
+
+    <!-- 4. íì  ì§ì -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon purple">ð</div>
+        <div>
+          <div class="guide-card-title">íì  & ë²ë¥  ì§ì â ìë ë§í¼ ì±ê¸°ë ê¶ë¦¬</div>
+          <div class="guide-card-sub">ì°ë§ì ì° Â· ë³´íê¸ Â· ì§ì ì ë</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>ì¸ë²ì ì¥ì ì¸ ê³µì ë¥¼ ì±ê¸°ì¸ì.</strong> ì íìë 'ì¸ë²ì ì¥ì ì¸'ì¼ë¡ ì¸ì ë°ì ì ìì¼ë©°, ì°ë§ì ì° ì ì¥ì ì¸ ìëê³µì ê° ì ì©ë©ëë¤. ë³ììì 'ì¥ì ì¸ ì¦ëªì'ë¥¼ ë°ê¸ë°ì ì¬ì©íë©´ ë©ëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ë³´íê¸ ì²­êµ¬ë í¬ê¸°íì§ ë§ì¸ì.</strong> ë³´íì¬ê° ì§ê¸ì ê±°ë¶íê±°ë ì ê² ì§ê¸íë¤ê³  íë¨ëë©´ ìí´ì¬ì ì¬ìê² ìë´ì ë°ì¼ì¸ì. ììë£ë ë³´íê¸ ìë ¹ í ì§ë¶íë ë°©ìì´ ë§ì ë¶ë´ì´ ì ìµëë¤.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>ê°ì¡± ëë´ í´ê°Â·í´ì§ ì ëë¥¼ íì¸íì¸ì.</strong> ì§ì¥ì¸ì´ë¼ë©´ ê°ì¡± ëë´ í´ì§(ì°ê° ìµë 90ì¼)ì ì ì²­í  ì ììµëë¤. ê³ ì©ë³´íìì ì¼ë¶ ê¸ì¬ë ì§ìë©ëë¤. íì¬ ì¸ì¬ë´ë¹ì ëë ê³ ì©ë¸ëë¶ ê³ ê°ìë´ì¼í°(1350)ì ë¬¸ìíì¸ì.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="container">
+    <h2>ë ê¹ì ë´ì©ì´ íìíì ê°ì?</h2>
+    <p>ìì¹ëª¨ ë§ì¤í° í´ëì¤ìë ë³´í¸ì ì£ì±ê° í´ë íë¡ì í¸, ê°ë³ ìì¤í ííë¦¿, íì Â·ë²ë¥  ì§ì ìì  ê°ì´ë ë± í¨ì¬ ìì¸í ë´ì©ì´ ììµëë¤.</p>
+    <div class="cta-buttons">
+      <a href="https://cafe.naver.com/amwinner" class="btn-primary">ð  ìì¹ëª¨ ì¹´íìì ìì¸í ë³´ê¸°</a>
+      <a href="https://cancer.it.kr/#stage" class="btn-secondary">â ë¤ë¥¸ ë¨ê³ ë³´ê¸°</a>
+    </div>
+  </div>
+</div>
+
+<div class="stage-nav">
+  <h3>ë¤ë¥¸ ë¨ê³ ê°ì´ëë íì¸íì¸ì</h3>
+  <div class="stage-grid">
+    <a href="https://cancer.it.kr/guide-diagnosis.html" class="stage-btn"><span>ð°</span>ì§ë¨ ì´ê¸°</a>
+    <a href="https://cancer.it.kr/guide-treatment.html" class="stage-btn"><span>ð</span>ì¹ë£ ì¤</a>
+    <a href="https://cancer.it.kr/guide-recovery.html" class="stage-btn"><span>ð±</span>ì¹ë£ ì¢ë£ í</a>
+    <a href="https://cancer.it.kr/guide-recurrence.html" class="stage-btn"><span>ð</span>ì¬ë°Â·ì ì´</a>
+    <a href="https://cancer.it.kr/guide-caregiver.html" class="stage-btn active"><span>ð¤</span>ë³´í¸ì</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  â ï¸ ë³¸ ê°ì´ëì ëª¨ë  ìë£ ì ë³´ë êµì¡ ë° ì°¸ê³  ëª©ì ì¼ë¡ë§ ì ê³µëë©°, ì ë¬¸ ìë£ì¸ì ì§ë¨ ë° ì¹ë£ë¥¼ ëì²´í  ì ììµëë¤.<br>
+  ê±´ê° ê´ë ¨ ê²°ì ì ë°ëì ë´ë¹ ìë£ì§ê³¼ ìë´ í ì§ííìê¸° ë°ëëë¤.
+</div>
+
+<footer>
+  <div>Â© 2026 Cancer IT KR Â· ë¹í°ê° ë§¤ëì  Â· All rights reserved.</div>
+  <div style="margin-top:8px;">
+    <a href="https://cancer.it.kr/">í</a>
+    <a href="https://cancer.it.kr/copyright.html">ì ìê¶ ìë´</a>
+    <a href="mailto:kangnw2023@gmail.com">ë¬¸ìíê¸°</a>
+    <a href="https://cafe.naver.com/amwinner">ìì¹ëª¨ ì¹´í</a>
+  </div>
+</footer>
+
+</body>
+</html>
