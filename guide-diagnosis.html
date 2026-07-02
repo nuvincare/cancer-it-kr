@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>진단 초기 가이드 | Cancer IT KR</title>
+  <meta name="description" content="암 진단 직후 무엇을 해야 할까요? 패닉 없이 첫 단계를 밟는 실전 가이드입니다. 병원 선택, 검사 결과 이해, 감정 관리까지.">
+  <link rel="canonical" href="https://cancer.it.kr/guide-diagnosis.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
 
+    nav { background: #0d3d2a; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-weight: 900; font-size: 1rem; }
+    .nav-logo span { color: #7ee8a2; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500; }
+    .nav-links a:hover { color: #7ee8a2; }
+    .nav-cafe { background: #7ee8a2; color: #0d3d2a !important; padding: 6px 14px; border-radius: 20px; font-weight: 700 !important; }
+
+    .hero { background: linear-gradient(135deg, #7a1a1a 0%, #c0392b 60%, #e74c3c 100%); padding: 60px 24px 50px; text-align: center; color: #fff; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); }
+    .stage-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.88); max-width: 560px; margin: 0 auto 28px; }
+    .hero-meta { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 56px 0; }
+    .section-intro { text-align: center; margin-bottom: 40px; }
+    .section-intro h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; color: #0d3d2a; }
+    .section-intro p { color: #555; font-size: 0.95rem; }
+
+    .guide-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .guide-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .guide-icon { font-size: 2rem; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 14px; flex-shrink: 0; }
+    .guide-icon.red { background: #fdf0f0; }
+    .guide-icon.blue { background: #f0f4fd; }
+    .guide-icon.green { background: #f0fdf4; }
+    .guide-icon.purple { background: #f8f0fd; }
+    .guide-card-title { font-size: 1.15rem; font-weight: 900; color: #1a1a1a; margin-bottom: 4px; }
+    .guide-card-sub { font-size: 0.82rem; color: #888; font-weight: 500; }
+    .guide-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .guide-items li { display: flex; gap: 12px; align-items: flex-start; }
+    .guide-items li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #c0392b; flex-shrink: 0; margin-top: 9px; }
+    .guide-items li strong { color: #c0392b; }
+    .guide-items p { font-size: 0.93rem; color: #444; }
+
+    .tip-box { background: #fdf0f0; border-left: 4px solid #c0392b; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; color: #555; }
+    .tip-box strong { color: #7a1a1a; }
+
+    .calm-box { background: linear-gradient(135deg, #fdf8f8, #fdf0f0); border-radius: 14px; padding: 24px; margin: 20px 0; text-align: center; }
+    .calm-box p { font-size: 1rem; font-weight: 700; color: #555; font-style: italic; line-height: 1.8; }
+
+    .cta-section { background: linear-gradient(135deg, #0d3d2a, #1a6b48); padding: 56px 24px; text-align: center; color: #fff; }
+    .cta-section h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
+    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #7ee8a2; color: #0d3d2a; padding: 14px 28px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; transition: transform .2s; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; display: inline-block; }
+
+    .stage-nav { background: #f7f9f7; padding: 40px 24px; }
+    .stage-nav h3 { text-align: center; font-size: 1rem; font-weight: 700; color: #555; margin-bottom: 24px; }
+    .stage-grid { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 780px; margin: 0 auto; }
+    .stage-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 18px; border-radius: 12px; border: 2px solid #e0e0e0; background: #fff; font-size: 0.8rem; font-weight: 700; color: #555; transition: all .2s; min-width: 100px; }
+    .stage-btn:hover { border-color: #c0392b; color: #c0392b; }
+    .stage-btn.active { border-color: #c0392b; background: #fdf0f0; color: #c0392b; }
+    .stage-btn span { font-size: 1.4rem; }
+
+    footer { background: #0d3d2a; color: rgba(255,255,255,0.7); padding: 28px 24px; text-align: center; font-size: 0.8rem; line-height: 2; }
+    footer a { color: rgba(255,255,255,0.6); margin: 0 8px; }
+    footer a:hover { color: #7ee8a2; }
+    .disclaimer { background: #f9f9f9; border-top: 1px solid #eee; padding: 20px 24px; text-align: center; font-size: 0.78rem; color: #999; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 20px; }
+      .guide-card { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://cancer.it.kr/" class="nav-logo">🎗️ <span>Cancer IT KR</span></a>
+  <div class="nav-links">
+    <a href="https://cancer.it.kr/#stage">단계별 가이드</a>
+    <a href="https://cancer.it.kr/tips/">꿀팁</a>
+    <a href="https://cancer.it.kr/savings/">절약정보</a>
+    <a href="https://cafe.naver.com/amwinner" class="nav-cafe">암승모 카페 →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="https://cancer.it.kr/">홈</a> › 단계별 가이드 › 진단 초기</div>
+  <div class="stage-badge">😰 Stage 1 · 진단 초기</div>
+  <h1>진단받은 직후<br>패닉 없이 첫 걸음 밟기</h1>
+  <p>암 진단은 인생에서 가장 충격적인 순간 중 하나입니다. 지금 당장 해야 할 것과 하지 않아도 될 것을 구분하는 것부터 시작합니다.</p>
+  <div class="hero-meta">※ 본 정보는 교육 목적이며, 치료 결정은 반드시 담당 의료진과 상담하세요.</div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-intro">
+      <h2>진단 초기 핵심 가이드 4가지</h2>
+      <p>핵심 가치: 정확한 정보 수집, 치료팀 구성, 감정 안정</p>
+    </div>
+
+    <!-- 1. 진단서 & 병기 이해 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon red">📋</div>
+        <div>
+          <div class="guide-card-title">진단서·병기부터 정확히 이해하세요</div>
+          <div class="guide-card-sub">병기(Stage) · 조직검사 결과 · 기록 보관</div>
+        </div>
+      </div>
+      <div class="calm-box">
+        <p>"진단을 받은 것은 치료의 시작입니다.<br>지금 모든 것을 알 필요는 없습니다.<br>한 번에 한 단계씩."</p>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>진단서와 조직검사 결과지를 반드시 받아두세요.</strong> 담당 의사에게 "조직검사 결과 원본을 주실 수 있나요?"라고 요청하세요. 병기(Stage), 암의 종류, 수용체 상태(유방암의 경우 ER·PR·HER2) 등이 치료 방향을 결정합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>병기(Stage)는 치료법을 결정하는 기준입니다.</strong> 1~4기로 나뉘며, 같은 병기라도 세부 분류(예: 2A, 2B)에 따라 치료 방향이 다를 수 있습니다. 담당 의사에게 "제 병기가 정확히 어떻게 되나요?"라고 직접 질문하세요.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>모든 검사 결과와 의료 기록을 파일로 보관하세요.</strong> 추후 전원, 2차 의견 요청, 보험 청구 시 필수입니다. 스캔 앱(카메라 → PDF 저장)으로 즉시 디지털화하세요.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2. 병원 선택 & 2차 의견 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon blue">🏥</div>
+        <div>
+          <div class="guide-card-title">병원 선택 & 2차 의견 구하기</div>
+          <div class="guide-card-sub">대형병원 vs 지역병원 · 주치의 선택</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>2차 의견(Second Opinion)은 당연한 권리입니다.</strong> 다른 병원에서 같은 검사 결과를 가지고 추가 의견을 구하는 것은 환자의 정당한 권리입니다. 현재 담당 의사에게 기분 나쁘게 말할 필요가 없습니다. "다른 병원에서 의견을 들어보고 싶습니다"라고 담담하게 말하면 됩니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>암 전문 치료기관인지 확인하세요.</strong> 국가암정보센터(cancer.go.kr)에서 암 종류별 치료 건수가 많은 병원을 확인할 수 있습니다. 해당 암 치료 경험이 풍부한 병원이 유리합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>다학제 진료(MDT)를 받을 수 있는지 확인하세요.</strong> 외과·종양내과·방사선종양학과·영상의학과 등 여러 전문의가 함께 치료 방향을 논의하는 방식입니다. 복잡한 케이스일수록 중요합니다.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="tip-box"><strong>💡 팁</strong> 대형 암센터 첫 진료는 수개월 대기가 생길 수 있습니다. 현재 병원에서 치료를 시작하면서 동시에 예약을 잡는 것도 방법입니다.</div>
+    </div>
+
+    <!-- 3. 가족·주변에 알리기 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon green">👨‍👩‍👧</div>
+        <div>
+          <div class="guide-card-title">가족·주변에 알리는 방법</div>
+          <div class="guide-card-sub">커밍아웃 전략 · 지지체계 구성</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>누구에게, 얼마나 알릴지는 내가 결정합니다.</strong> 모든 사람에게 알릴 의무는 없습니다. 먼저 가장 가까운 1~2명에게만 알리고, 지지를 받으면서 범위를 조금씩 넓혀가는 방식을 많은 분들이 선택합니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>가족에게 알릴 때 '역할 분담'을 함께 이야기하세요.</strong> "병원 동행은 누가 할지", "어린 자녀에게는 어떻게 설명할지" 등을 미리 의논해두면 이후 혼란을 줄일 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>암승모처럼 같은 경험을 한 커뮤니티를 찾으세요.</strong> 18년 역사의 암 환자 모임에서는 비슷한 상황을 먼저 경험한 분들의 실질적인 조언을 들을 수 있습니다. 의료 정보뿐 아니라 감정적 지지도 매우 중요합니다.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 4. 감정 관리 & 심리 지원 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon purple">💙</div>
+        <div>
+          <div class="guide-card-title">감정 관리 — 두려움과 함께 사는 법</div>
+          <div class="guide-card-sub">심리 상담 · 정신건강의학과 · 마음 안정</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>진단 후 두려움·분노·슬픔은 정상적인 반응입니다.</strong> "왜 나한테 이런 일이?"라는 생각, 눈물, 분노는 누구나 경험합니다. 이 감정을 억누르거나 빨리 극복하려 하지 않아도 됩니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>병원 내 심리 상담 서비스를 적극 활용하세요.</strong> 대부분의 암센터에는 사회복지사, 심리 상담사, 정신건강의학과가 있습니다. "마음이 힘들다"고 솔직하게 말하면 연결해줍니다. 심리 치료는 암 치료의 일부입니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>인터넷 검색을 무분별하게 하지 마세요.</strong> 진단 직후 검색은 오히려 불안을 키울 수 있습니다. 특히 통계 수치(생존율 등)는 맥락 없이 보면 혼란만 줍니다. 주치의와 대화를 통해 내 상황에 맞는 정보를 얻으세요.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="container">
+    <h2>더 깊은 내용이 필요하신가요?</h2>
+    <p>암승모 마스터 클래스에는 병원 선택 체크리스트, 2차 의견 요청 실전 스크립트, 가족 고지 전략 등 훨씬 상세한 내용이 있습니다.</p>
+    <div class="cta-buttons">
+      <a href="https://cafe.naver.com/amwinner" class="btn-primary">🏠 암승모 카페에서 자세히 보기</a>
+      <a href="https://cancer.it.kr/#stage" class="btn-secondary">← 다른 단계 보기</a>
+    </div>
+  </div>
+</div>
+
+<div class="stage-nav">
+  <h3>다른 단계 가이드도 확인하세요</h3>
+  <div class="stage-grid">
+    <a href="https://cancer.it.kr/guide-diagnosis.html" class="stage-btn active"><span>😰</span>진단 초기</a>
+    <a href="https://cancer.it.kr/guide-treatment.html" class="stage-btn"><span>💊</span>치료 중</a>
+    <a href="https://cancer.it.kr/guide-recovery.html" class="stage-btn"><span>🌱</span>치료 종료 후</a>
+    <a href="https://cancer.it.kr/guide-recurrence.html" class="stage-btn"><span>💙</span>재발·전이</a>
+    <a href="https://cancer.it.kr/guide-caregiver.html" class="stage-btn"><span>🤝</span>보호자</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 본 가이드의 모든 의료 정보는 교육 및 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다.<br>
+  건강 관련 결정은 반드시 담당 의료진과 상담 후 진행하시기 바랍니다.
+</div>
+
+<footer>
+  <div>© 2026 Cancer IT KR · 빅터강 매니저 · All rights reserved.</div>
+  <div style="margin-top:8px;">
+    <a href="https://cancer.it.kr/">홈</a>
+    <a href="https://cancer.it.kr/copyright.html">저작권 안내</a>
+    <a href="mailto:kangnw2023@gmail.com">문의하기</a>
+    <a href="https://cafe.naver.com/amwinner">암승모 카페</a>
+  </div>
+</footer>
+
+</body>
+</html>
