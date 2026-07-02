@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>치료 중 가이드 | Cancer IT KR</title>
+  <meta name="description" content="항암·방사선·수술 치료 중 부작용 관리, 식단, 응급 대처, 운동법까지 실전 가이드입니다.">
+  <link rel="canonical" href="https://cancer.it.kr/guide-treatment.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { background: #0d3d2a; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-weight: 900; font-size: 1rem; }
+    .nav-logo span { color: #7ee8a2; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: #7ee8a2; }
+    .nav-cafe { background: #7ee8a2; color: #0d3d2a !important; padding: 6px 14px; border-radius: 20px; font-weight: 700 !important; }
+
+    .hero { background: linear-gradient(135deg, #1a4a7a 0%, #2980b9 60%, #3498db 100%); padding: 60px 24px 50px; text-align: center; color: #fff; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); }
+    .stage-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.88); max-width: 560px; margin: 0 auto 28px; }
+    .hero-meta { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 56px 0; }
+    .section-intro { text-align: center; margin-bottom: 40px; }
+    .section-intro h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; color: #0d3d2a; }
+    .section-intro p { color: #555; font-size: 0.95rem; }
+
+    .guide-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .guide-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .guide-icon { font-size: 2rem; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 14px; flex-shrink: 0; }
+    .guide-icon.blue { background: #f0f4fd; }
+    .guide-icon.red { background: #fdf0f0; }
+    .guide-icon.green { background: #f0fdf4; }
+    .guide-icon.orange { background: #fdf6f0; }
+    .guide-card-title { font-size: 1.15rem; font-weight: 900; color: #1a1a1a; margin-bottom: 4px; }
+    .guide-card-sub { font-size: 0.82rem; color: #888; font-weight: 500; }
+    .guide-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .guide-items li { display: flex; gap: 12px; align-items: flex-start; }
+    .guide-items li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2980b9; flex-shrink: 0; margin-top: 9px; }
+    .guide-items li strong { color: #2980b9; }
+    .guide-items p { font-size: 0.93rem; color: #444; }
+
+    .tip-box { background: #f0f8ff; border-left: 4px solid #2980b9; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; color: #555; }
+    .tip-box strong { color: #1a4a7a; }
+
+    .alert-box { background: #fff5f5; border: 2px solid #e74c3c; border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+    .alert-box .alert-title { font-weight: 900; color: #c0392b; font-size: 1rem; margin-bottom: 10px; }
+    .alert-box p { font-size: 0.9rem; color: #555; }
+
+    .cta-section { background: linear-gradient(135deg, #0d3d2a, #1a6b48); padding: 56px 24px; text-align: center; color: #fff; }
+    .cta-section h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
+    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #7ee8a2; color: #0d3d2a; padding: 14px 28px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; transition: transform .2s; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; display: inline-block; }
+
+    .stage-nav { background: #f7f9f7; padding: 40px 24px; }
+    .stage-nav h3 { text-align: center; font-size: 1rem; font-weight: 700; color: #555; margin-bottom: 24px; }
+    .stage-grid { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 780px; margin: 0 auto; }
+    .stage-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 18px; border-radius: 12px; border: 2px solid #e0e0e0; background: #fff; font-size: 0.8rem; font-weight: 700; color: #555; transition: all .2s; min-width: 100px; }
+    .stage-btn:hover { border-color: #2980b9; color: #2980b9; }
+    .stage-btn.active { border-color: #2980b9; background: #f0f4fd; color: #2980b9; }
+    .stage-btn span { font-size: 1.4rem; }
+
+    footer { background: #0d3d2a; color: rgba(255,255,255,0.7); padding: 28px 24px; text-align: center; font-size: 0.8rem; line-height: 2; }
+    footer a { color: rgba(255,255,255,0.6); margin: 0 8px; }
+    footer a:hover { color: #7ee8a2; }
+    .disclaimer { background: #f9f9f9; border-top: 1px solid #eee; padding: 20px 24px; text-align: center; font-size: 0.78rem; color: #999; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 20px; }
+      .guide-card { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://cancer.it.kr/" class="nav-logo">🎗️ <span>Cancer IT KR</span></a>
+  <div class="nav-links">
+    <a href="https://cancer.it.kr/#stage">단계별 가이드</a>
+    <a href="https://cancer.it.kr/tips/">꿀팁</a>
+    <a href="https://cancer.it.kr/savings/">절약정보</a>
+    <a href="https://cafe.naver.com/amwinner" class="nav-cafe">암승모 카페 →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="https://cancer.it.kr/">홈</a> › 단계별 가이드 › 치료 중</div>
+  <div class="stage-badge">💊 Stage 2 · 치료 중</div>
+  <h1>항암·방사선을 버티는<br>실전 면역 관리</h1>
+  <p>치료 중단 없이 완주하는 것이 목표입니다. 부작용 대처, 올바른 식단, 응급 상황 대응법을 알아두세요.</p>
+  <div class="hero-meta">※ 본 정보는 교육 목적이며, 치료 결정은 반드시 담당 의료진과 상담하세요.</div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-intro">
+      <h2>치료기 핵심 가이드 4가지</h2>
+      <p>"암 치료는 마라톤입니다. 무조건 참는 것이 능사가 아닙니다. 부작용을 현명하게 관리해야 완주합니다."</p>
+    </div>
+
+    <!-- 1. 부작용 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon blue">🛡️</div>
+        <div>
+          <div class="guide-card-title">항암 부작용 지도 — 미리 알면 덜 아프다</div>
+          <div class="guide-card-sub">오심·탈모·손발저림 대처법</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>오심·구토 — 참지 말고 예방약 쓰세요.</strong> 에멘드, 아키 같은 항구토제가 효과적입니다. 증상이 생기기 전 예방적으로 복용하는 것이 중요합니다. 음식은 차갑게 식혀서 냄새를 줄이고 소량씩 자주 드세요.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>탈모 — 1차 항암 후 2~3주부터 시작됩니다.</strong> 머리가 숭덩숭덩 빠지기 시작하면 두피 통증이 오기 전에 미리 삭발하는 것을 권합니다. 비니·수면 모자로 체온을 유지하고, 두피는 순한 보습제로 관리하세요.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>손발 저림(말초신경병증) — 냉찜질이 예방 도움이 됩니다.</strong> 항암 주사를 맞는 동안 아이스 장갑·양말로 손발을 차갑게 하면 말초신경 손상을 줄이는 데 도움이 됩니다. 평소에는 보온과 가벼운 마사지로 혈액순환을 도우세요.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2. 식단 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon green">🥗</div>
+        <div>
+          <div class="guide-card-title">암 환자 식단의 정석 — 잘 먹는 것이 항암이다</div>
+          <div class="guide-card-sub">단백질 공식 · 절대 피할 음식</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>단백질 공식: 내 체중 × 1.2~1.5g.</strong> 60kg이라면 하루 단백질 72~90g이 필요합니다. 계란 3개 + 탁구공 크기 살코기 3~4덩이 정도입니다. 단백질은 '약'이라 생각하고 드셔야 항암을 버팁니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>절대 피해야 할 음식.</strong> 생선회·육회·생굴·덜 익은 계란 등 익히지 않은 음식, 자몽(항암제 대사 방해), 고농축 즙류(붕어즙·상황버섯 달인 물 등)는 간 수치를 올려 항암 일정을 지연시킬 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>도저히 못 먹겠을 때.</strong> 뉴케어·그린비아 같은 환자용 균형 영양식을 차갑게 해서 드세요. 밥 반 공기 억지로 먹는 것보다 영양 음료 1캔이 칼로리·영양 면에서 더 나을 수 있습니다.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="tip-box"><strong>💡 팁</strong> "무엇을 먹어야 암이 낫나요?"라는 질문의 정답은 없습니다. '어떻게 먹어야 버티는지'에 집중하세요.</div>
+    </div>
+
+    <!-- 3. 응급 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon red">🚑</div>
+        <div>
+          <div class="guide-card-title">응급 상황 대처 — 38도의 경고</div>
+          <div class="guide-card-sub">호중구 감소성 발열 · 응급실 키트</div>
+        </div>
+      </div>
+      <div class="alert-box">
+        <div class="alert-title">🌡️ 체온이 38.0℃ 이상 + 오한 → 즉시 응급실로!</div>
+        <p>해열제(타이레놀 등)를 먹고 기다리면 절대 안 됩니다. 열이 내리면 응급실에서 진단이 어렵습니다. 다니던 대학병원 응급실에 가서 "항암 치료 중입니다"라고 말하면 우선 처치를 받습니다.</p>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>왜 위험한가요.</strong> 항암 중에는 백혈구(호중구)가 줄어 세균이 침투하면 패혈증으로 이어질 수 있습니다. 38도 발열은 단순 감기가 아닌 생사가 오가는 신호일 수 있습니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>응급실 키트를 현관 앞에 미리 준비하세요.</strong> 신분증, 병원 진료카드, 최근 처방전(복용 약 봉투), 덮을 담요, 슬리퍼, 스마트폰 충전기. 보호자가 당황하지 않도록 언제든 들고 나갈 수 있게 두세요.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 4. 운동 -->
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <div class="guide-icon orange">🏃</div>
+        <div>
+          <div class="guide-card-title">치료 중 운동법 — 눕지 말고 조금씩</div>
+          <div class="guide-card-sub">침상 운동 · 방사선 피로 관리</div>
+        </div>
+      </div>
+      <ul class="guide-items">
+        <li>
+          <div>
+            <p><strong>누워서 할 수 있는 운동부터.</strong> 발목 펌핑(발가락을 당겼다 밀었다 반복)은 혈전 예방에 도움이 됩니다. 복식 호흡(코로 깊게 들이마시고 입으로 길게 내뱉기)은 폐 기능과 스트레스 완화에 효과적입니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>항암 당일 vs 회복기 운동은 다릅니다.</strong> 주사 당일에는 침상 운동 수준만 유지하고, 회복기에는 가벼운 산책으로 근육을 유지하세요. 근육은 최고의 면역 저장소입니다.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p><strong>방사선 치료 후반 피로는 당연한 증상입니다.</strong> 몸이 회복에 에너지를 쓰기 때문입니다. 죄책감 갖지 말고 낮잠을 충분히 주무세요. 피부 치료 부위는 꽉 끼는 옷을 피하고 처방 크림을 꼬박꼬박 바르세요.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="container">
+    <h2>더 깊은 내용이 필요하신가요?</h2>
+    <p>암승모 마스터 클래스에는 항암제 3대장 완전 정복, 수술 후유증 관리, 요양 기관 선택 가이드 등 훨씬 상세한 내용이 준비되어 있습니다.</p>
+    <div class="cta-buttons">
+      <a href="https://cafe.naver.com/amwinner" class="btn-primary">🏠 암승모 카페에서 자세히 보기</a>
+      <a href="https://cancer.it.kr/#stage" class="btn-secondary">← 다른 단계 보기</a>
+    </div>
+  </div>
+</div>
+
+<div class="stage-nav">
+  <h3>다른 단계 가이드도 확인하세요</h3>
+  <div class="stage-grid">
+    <a href="https://cancer.it.kr/guide-diagnosis.html" class="stage-btn"><span>😰</span>진단 초기</a>
+    <a href="https://cancer.it.kr/guide-treatment.html" class="stage-btn active"><span>💊</span>치료 중</a>
+    <a href="https://cancer.it.kr/guide-recovery.html" class="stage-btn"><span>🌱</span>치료 종료 후</a>
+    <a href="https://cancer.it.kr/guide-recurrence.html" class="stage-btn"><span>💙</span>재발·전이</a>
+    <a href="https://cancer.it.kr/guide-caregiver.html" class="stage-btn"><span>🤝</span>보호자</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 본 가이드의 모든 의료 정보는 교육 및 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다.<br>
+  건강 관련 결정은 반드시 담당 의료진과 상담 후 진행하시기 바랍니다.
+</div>
+
+<footer>
+  <div>© 2026 Cancer IT KR · 빅터강 매니저 · All rights reserved.</div>
+  <div style="margin-top:8px;">
+    <a href="https://cancer.it.kr/">홈</a>
+    <a href="https://cancer.it.kr/copyright.html">저작권 안내</a>
+    <a href="mailto:kangnw2023@gmail.com">문의하기</a>
+    <a href="https://cafe.naver.com/amwinner">암승모 카페</a>
+  </div>
+</footer>
+
+</body>
+</html>
