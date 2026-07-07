@@ -1,281 +1,475 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>보호자 가이드 | Cancer IT KR</title>
-  <meta name="description" content="가족·보호자를 위한 실전 가이드. 간병 시스템 만들기, 대화법, 멘탈 케어, 행정 지원까지 — 나를 잃지 않고 곁에 있는 법.">
-  <link rel="canonical" href="https://cancer.it.kr/guide-caregiver.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보호자 가이드 | 암 보호자 체크리스트 - Cancer IT KR</title>
+<meta name="description" content="18년간 18만 명이 함께한 암승모의 보호자 실전 노하우. 진단부터 회복까지 놓치기 쉬운 것들을 인터랙티브 체크리스트로 확인하세요.">
+<style>
+  :root {
+    --teal: #0F6E56; --teal-light: #E1F5EE; --teal-mid: #1D9E75;
+    --ink: #22262A; --muted: #6B7280; --line: #E5E7EB; --bg: #FAFAF8; --card: #FFFFFF;
+    --warn-bg: #FDECEA; --warn-line: #B91C1C;
+    --bad-bg: #FDECEA; --good-bg: #E1F5EE;
+    --amber-bg: #FDF3E1; --amber-line: #E0B24A; --amber-ink: #7A5A0E;
+    --header-bg: #0B2B24;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+  a { color: inherit; }
 
-    nav { background: #0d3d2a; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
-    .nav-logo { color: #fff; font-weight: 900; font-size: 1rem; }
-    .nav-logo span { color: #7ee8a2; }
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500; }
-    .nav-links a:hover { color: #7ee8a2; }
-    .nav-cafe { background: #7ee8a2; color: #0d3d2a !important; padding: 6px 14px; border-radius: 20px; font-weight: 700 !important; }
+  /* ---- 사이트 공통 헤더 (cancer.it.kr 톤 매칭) ---- */
+  .site-header { background: var(--header-bg); color: #fff; }
+  .site-header-inner { max-width: 1000px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .site-logo { font-size: 16px; font-weight: 700; text-decoration: none; color: #fff; }
+  .site-nav { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+  .site-nav a { text-decoration: none; color: #CFE7DE; }
+  .site-nav a.current { color: #fff; font-weight: 700; border-bottom: 2px solid var(--teal-mid); padding-bottom: 2px; }
+  .site-nav a.cafe { color: #fff; background: var(--teal-mid); padding: 6px 12px; border-radius: 999px; }
 
-    .hero { background: linear-gradient(135deg, #7d4a00 0%, #d68910 60%, #e59866 100%); padding: 60px 24px 50px; text-align: center; color: #fff; }
-    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
-    .breadcrumb a { color: rgba(255,255,255,0.7); }
-    .stage-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
-    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
-    .hero p { font-size: 1rem; color: rgba(255,255,255,0.88); max-width: 560px; margin: 0 auto 28px; }
-    .hero-meta { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+  /* ---- 정적 히어로 (SEO용) ---- */
+  .hero { max-width: 760px; margin: 0 auto; padding: 40px 20px 8px; text-align: center; }
+  .hero .eyebrow { font-size: 13px; color: var(--teal); font-weight: 700; }
+  .hero h1 { font-size: 28px; margin: 10px 0 10px; }
+  .hero p.lead { font-size: 15px; color: var(--muted); max-width: 560px; margin: 0 auto; }
+  .hero .stats { display: flex; justify-content: center; gap: 28px; margin: 22px 0 6px; flex-wrap: wrap; }
+  .hero .stat b { display: block; font-size: 20px; color: var(--teal); }
+  .hero .stat span { font-size: 12px; color: var(--muted); }
 
-    .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 56px 0; }
-    .section-intro { text-align: center; margin-bottom: 40px; }
-    .section-intro h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; color: #0d3d2a; }
-    .section-intro p { color: #555; font-size: 0.95rem; }
+  /* ---- 정적 소개 본문 (SEO/크롤러용 프로즈) ---- */
+  .intro-prose { max-width: 680px; margin: 24px auto 0; padding: 0 20px; font-size: 14.5px; color: #3A4139; }
+  .intro-prose h2 { font-size: 18px; margin: 0 0 8px; }
+  .intro-prose p { margin: 0 0 14px; }
 
-    .doctor-quote { background: linear-gradient(135deg, #fdf6e8, #fdf0e0); border-radius: 16px; padding: 28px 32px; margin-bottom: 36px; text-align: center; }
-    .doctor-quote p { font-size: 0.95rem; color: #555; line-height: 1.8; font-style: italic; }
-    .doctor-quote strong { color: #7d4a00; }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 24px 16px 40px; }
 
-    .guide-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-    .guide-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-    .guide-icon { font-size: 2rem; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 14px; flex-shrink: 0; }
-    .guide-icon.orange { background: #fdf6f0; }
-    .guide-icon.green { background: #f0fdf4; }
-    .guide-icon.blue { background: #f0f4fd; }
-    .guide-icon.purple { background: #f8f0fd; }
-    .guide-card-title { font-size: 1.15rem; font-weight: 900; color: #1a1a1a; margin-bottom: 4px; }
-    .guide-card-sub { font-size: 0.82rem; color: #888; font-weight: 500; }
-    .guide-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .guide-items li { display: flex; gap: 12px; align-items: flex-start; }
-    .guide-items li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #d68910; flex-shrink: 0; margin-top: 9px; }
-    .guide-items li strong { color: #d68910; }
-    .guide-items p { font-size: 0.93rem; color: #444; }
+  .profile-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin: 20px 0 14px; }
+  .profile-card h3 { margin: 0 0 4px; font-size: 14.5px; }
+  .profile-card .sub { margin: 0 0 12px; font-size: 12px; color: var(--muted); }
+  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .profile-field { display: flex; flex-direction: column; gap: 4px; }
+  .profile-field label { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .profile-field select, .profile-field input {
+    height: 36px; border: 1px solid var(--line); border-radius: 8px; padding: 0 10px; font-size: 13.5px;
+    font-family: inherit; background: #fff; color: var(--ink);
+  }
+  .profile-field select:focus, .profile-field input:focus { outline: none; border-color: var(--teal-mid); }
+  .profile-status { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+  .profile-status.on { color: var(--teal); }
 
-    .dialogue-box { background: #f9f9f9; border-radius: 12px; padding: 20px; margin: 16px 0; }
-    .dialogue-box .do { color: #27ae60; font-weight: 700; margin-bottom: 8px; font-size: 0.88rem; }
-    .dialogue-box .dont { color: #e74c3c; font-weight: 700; margin-bottom: 8px; font-size: 0.88rem; }
-    .dialogue-box p { font-size: 0.9rem; color: #444; margin: 4px 0; }
+  .progress-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin: 0 0 14px; display: flex; align-items: center; gap: 14px; }
+  .progress-num { font-size: 22px; font-weight: 700; color: var(--teal); }
+  .progress-ring-label { font-size: 13px; color: var(--muted); }
+  .progress-bar-track { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--teal-mid); transition: width 0.3s ease; }
 
-    .tip-box { background: #fdf6f0; border-left: 4px solid #d68910; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; color: #555; }
-    .tip-box strong { color: #7d4a00; }
+  .lead-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--amber-bg); border: 1px solid var(--amber-line); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+  .lead-banner p { margin: 0; font-size: 13px; color: var(--amber-ink); font-weight: 600; }
+  .lead-banner a { flex-shrink: 0; background: var(--amber-ink); color: #fff; font-size: 12.5px; font-weight: 700; padding: 8px 14px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
 
-    .cta-section { background: linear-gradient(135deg, #0d3d2a, #1a6b48); padding: 56px 24px; text-align: center; color: #fff; }
-    .cta-section h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
-    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: #7ee8a2; color: #0d3d2a; padding: 14px 28px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; transition: transform .2s; display: inline-block; }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; display: inline-block; }
+  .lead-card { background: var(--card); border: 2px solid var(--amber-line); border-radius: 14px; padding: 20px; margin-top: 20px; text-align: center; }
+  .lead-card .tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--amber-ink); background: var(--amber-bg); padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .lead-card h3 { margin: 0 0 8px; font-size: 18px; }
+  .lead-card p { margin: 0 0 16px; font-size: 13.5px; color: var(--muted); }
+  .lead-card a.cta { display: inline-block; background: var(--teal-mid); color: #fff; font-size: 15px; font-weight: 700; padding: 12px 22px; border-radius: 10px; text-decoration: none; }
+  .lead-card .fine { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
 
-    .stage-nav { background: #f7f9f7; padding: 40px 24px; }
-    .stage-nav h3 { text-align: center; font-size: 1rem; font-weight: 700; color: #555; margin-bottom: 24px; }
-    .stage-grid { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 780px; margin: 0 auto; }
-    .stage-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 18px; border-radius: 12px; border: 2px solid #e0e0e0; background: #fff; font-size: 0.8rem; font-weight: 700; color: #555; transition: all .2s; min-width: 100px; }
-    .stage-btn:hover { border-color: #d68910; color: #d68910; }
-    .stage-btn.active { border-color: #d68910; background: #fdf6f0; color: #d68910; }
-    .stage-btn span { font-size: 1.4rem; }
+  .category { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
+  .category-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; cursor: pointer; user-select: none; }
+  .category-title { font-size: 16px; font-weight: 700; }
+  .category-badge { font-size: 12px; font-weight: 600; color: var(--teal); background: var(--teal-light); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .category-chevron { color: var(--muted); font-size: 13px; margin-left: 8px; display: inline-block; transition: transform 0.2s; }
+  .category.open .category-chevron { transform: rotate(180deg); }
+  .category-body { display: none; padding: 0 18px 16px; }
+  .category.open .category-body { display: block; }
 
-    footer { background: #0d3d2a; color: rgba(255,255,255,0.7); padding: 28px 24px; text-align: center; font-size: 0.8rem; line-height: 2; }
-    footer a { color: rgba(255,255,255,0.6); margin: 0 8px; }
-    footer a:hover { color: #7ee8a2; }
-    .disclaimer { background: #f9f9f9; border-top: 1px solid #eee; padding: 20px 24px; text-align: center; font-size: 0.78rem; color: #999; line-height: 1.6; }
+  .item { padding: 10px 0; border-top: 1px solid var(--line); }
+  .item:first-child { border-top: none; }
+  .item-row { display: flex; align-items: flex-start; gap: 10px; }
+  .item input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--teal-mid); flex-shrink: 0; }
+  .item label { font-size: 14.5px; font-weight: 600; }
+  .item.checked label { color: var(--muted); text-decoration: line-through; font-weight: 400; }
+  .item .tip { font-size: 12.5px; color: var(--muted); margin: 3px 0 0 28px; }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero { padding: 40px 20px; }
-      .guide-card { padding: 24px 18px; }
-    }
-  </style>
+  .promo-card { margin-top: 10px; background: var(--teal-light); border: 1px solid #BEE6D6; border-radius: 12px; padding: 14px 16px; }
+  .promo-tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--teal); background: #FFFFFF; padding: 2px 8px; border-radius: 999px; margin-bottom: 8px; }
+  .promo-card h4 { margin: 0 0 6px; font-size: 15px; }
+  .promo-card p { margin: 0 0 10px; font-size: 13px; color: #3A4A44; }
+  .promo-card ul { margin: 0 0 12px; padding-left: 18px; font-size: 13px; color: #3A4A44; }
+  .promo-btn { display: inline-block; background: var(--teal-mid); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 8px; text-decoration: none; }
+  .promo-note { font-size: 11.5px; color: #6B7280; margin-top: 8px; }
+
+  .info-card { margin-top: 10px; background: #F6F6F3; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .info-card h4 { margin: 0 0 10px; font-size: 14.5px; }
+  .info-row { display: flex; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13px; }
+  .info-row:first-of-type { border-top: none; }
+  .info-num { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .info-row b { display: block; margin-bottom: 2px; }
+  .info-row span.d { color: var(--muted); }
+
+  .dialogue { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .dialogue-col { border-radius: 12px; padding: 12px 14px; font-size: 12.5px; }
+  .dialogue-col.bad { background: var(--bad-bg); }
+  .dialogue-col.good { background: var(--good-bg); }
+  .dialogue-col b { display: block; margin-bottom: 6px; font-size: 12.5px; }
+  .dialogue-col.bad b { color: #7A1F1F; }
+  .dialogue-col.good b { color: var(--teal); }
+  .dialogue-col ul { margin: 0; padding-left: 16px; }
+  .dialogue-col li { margin-bottom: 4px; }
+  @media (max-width: 480px) { .dialogue { grid-template-columns: 1fr; } .profile-grid { grid-template-columns: 1fr; } .hero .stats { gap: 18px; } }
+
+  .warn { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px; padding: 12px 14px; font-size: 12.5px; color: #7A1F1F; margin: 24px 0 8px; }
+
+  /* ---- 사이트 공통 푸터 (cancer.it.kr 톤 매칭) ---- */
+  .site-footer { background: var(--header-bg); color: #CFE7DE; margin-top: 32px; }
+  .site-footer-inner { max-width: 1000px; margin: 0 auto; padding: 28px 20px; font-size: 12.5px; }
+  .site-footer h4 { color: #fff; font-size: 13px; margin: 0 0 10px; }
+  .site-footer-cols { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 18px; }
+  .site-footer-cols a { display: block; color: #CFE7DE; text-decoration: none; margin-bottom: 6px; font-size: 12.5px; }
+  .site-footer .disclaimer { border-top: 1px solid #1E4A3D; padding-top: 14px; color: #9FC2B6; font-size: 11.5px; }
+  .site-footer .copyright { margin-top: 10px; color: #7FA394; font-size: 11.5px; }
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="https://cancer.it.kr/" class="nav-logo">🎗️ <span>Cancer IT KR</span></a>
-  <div class="nav-links">
-    <a href="https://cancer.it.kr/#stage">단계별 가이드</a>
-    <a href="https://cancer.it.kr/tips/">꿀팁</a>
-    <a href="https://cancer.it.kr/savings/">절약정보</a>
-    <a href="https://cafe.naver.com/amwinner" class="nav-cafe">암승모 카페 →</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-logo" href="https://cancer.it.kr/">🎗️ Cancer IT KR</a>
+    <nav class="site-nav">
+      <a href="https://cancer.it.kr/#survivor">생존자 이야기</a>
+      <a href="https://cancer.it.kr/#stage">단계별 가이드</a>
+      <a href="https://cancer.it.kr/tips/">꿀팁</a>
+      <a href="https://cancer.it.kr/#news">최신 뉴스</a>
+      <a href="https://cancer.it.kr/savings/">절약정보</a>
+      <a href="guide-caregiver.html" class="current">보호자 가이드</a>
+      <a class="cafe" href="https://cafe.naver.com/amwinner">암승모 카페 →</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<div class="hero">
-  <div class="breadcrumb"><a href="https://cancer.it.kr/">홈</a> › 단계별 가이드 › 보호자</div>
-  <div class="stage-badge">🤝 Stage 5 · 가족·보호자</div>
-  <h1>나를 잃지 않고<br>환자 곁에 있는 법</h1>
-  <p>당신도 환자입니다. 보호자가 건강해야 환자도 웃을 수 있습니다. 스마트한 간병의 기술을 알려드립니다.</p>
-  <div class="hero-meta">※ 본 정보는 교육 목적이며, 의료 결정은 반드시 담당 의료진과 상담하세요.</div>
-</div>
-
-<div class="container">
-  <div class="section">
-    <div class="section-intro">
-      <h2>보호자 핵심 가이드 4가지</h2>
-    </div>
-
-    <div class="doctor-quote">
-      <p>"진료실 문을 열고 들어올 때, 환자보다 더 안색이 나쁜 사람이 있습니다. 바로 보호자입니다.<br>암은 '가족병'입니다. <strong>당신이 행복해야 환자도 웃을 수 있습니다.</strong><br>이것은 이기심이 아니라, 가장 과학적인 간병 전략입니다."</p>
-    </div>
-
-    <!-- 1. 간병 시스템 -->
-    <div class="guide-card">
-      <div class="guide-card-header">
-        <div class="guide-icon orange">📋</div>
-        <div>
-          <div class="guide-card-title">간병도 시스템입니다 — 감이 아닌 기록으로</div>
-          <div class="guide-card-sub">간병 일지 · 스마트 간병 도구</div>
-        </div>
-      </div>
-      <ul class="guide-items">
-        <li>
-          <div>
-            <p><strong>간병 일지를 기록하세요.</strong> 체온, 배변 횟수, 식사량, 복용 약 시간을 매일 기록하면 증상 변화를 빨리 알아챌 수 있고, 진료 시 의사에게 정확한 정보를 전달할 수 있습니다. 스마트폰 메모나 노션 앱으로 충분합니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>약 먹을 시간 알람을 설정하세요.</strong> 항암 관련 약은 복용 시간이 중요합니다. 스마트폰 알람을 약 이름과 함께 설정해두면 빠뜨리지 않습니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>병원 동행 서비스를 활용하세요.</strong> 매번 직접 동행하기 어려운 경우, 지역사회 암 환자 지원 서비스나 봉사 연계 병원 동행 서비스를 활용할 수 있습니다. 병원 사회사업팀에 문의해보세요.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- 2. 대화법 -->
-    <div class="guide-card">
-      <div class="guide-card-header">
-        <div class="guide-icon green">💬</div>
-        <div>
-          <div class="guide-card-title">환자와의 대화법 — 상처받지 않는 소통</div>
-          <div class="guide-card-sub">공감 대화 · 짜증 대처법</div>
-        </div>
-      </div>
-      <ul class="guide-items">
-        <li>
-          <div>
-            <p><strong>공감 먼저, 해결책은 나중에.</strong> 환자가 힘들다고 할 때 "다 괜찮을 거야" "힘내" 대신 공감하는 말이 더 효과적입니다.</p>
-          </div>
-        </li>
-      </ul>
-      <div class="dialogue-box">
-        <div class="dont">❌ 피하세요</div>
-        <p>"힘내세요, 잘 될 거예요." / "긍정적으로 생각하세요."</p>
-        <div class="do" style="margin-top:12px;">✅ 이렇게 말해보세요</div>
-        <p>"오늘 많이 힘들었지? 내가 옆에 있을게." / "지금 어디가 제일 불편해요?"</p>
-      </div>
-      <ul class="guide-items" style="margin-top:16px;">
-        <li>
-          <div>
-            <p><strong>환자의 짜증과 화는 '나'를 향한 게 아닙니다.</strong> 몸이 아프고 불안하면 가장 가까운 사람에게 감정이 쏟아집니다. "나한테 왜 이러냐"가 아닌 "오늘 많이 아프구나"로 해석하면 마음이 훨씬 편합니다.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- 3. 멘탈 케어 -->
-    <div class="guide-card">
-      <div class="guide-card-header">
-        <div class="guide-icon blue">🧘</div>
-        <div>
-          <div class="guide-card-title">보호자 멘탈 케어 — 죄책감 내려놓기</div>
-          <div class="guide-card-sub">번아웃 방지 · 간병 프리 데이</div>
-        </div>
-      </div>
-      <ul class="guide-items">
-        <li>
-          <div>
-            <p><strong>"내가 못 챙겨줘서 아픈 건 아닐까"라는 생각, 내려놓으세요.</strong> 암은 누군가의 잘못이 아닙니다. 자책감은 보호자의 에너지를 소진시키고 결국 간병 능력도 떨어뜨립니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>주 1회 '간병 프리 데이'를 선포하세요.</strong> 다른 가족, 간병인, 지역사회 서비스를 활용해서 최소 하루는 완전히 쉬세요. 지속 가능한 간병을 위해 반드시 필요합니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>보호자도 상담을 받을 수 있습니다.</strong> 국가 암 정보센터(1577-8899) 또는 병원 내 심리 상담 프로그램은 환자 가족도 이용할 수 있습니다. 혼자 감당하지 마세요.</p>
-          </div>
-        </li>
-      </ul>
-      <div class="tip-box"><strong>💡 핵심</strong> 비행기에서 산소마스크는 내가 먼저 쓰고 아이를 도와야 합니다. 보호자도 마찬가지입니다.</div>
-    </div>
-
-    <!-- 4. 행정 지원 -->
-    <div class="guide-card">
-      <div class="guide-card-header">
-        <div class="guide-icon purple">📄</div>
-        <div>
-          <div class="guide-card-title">행정 & 법률 지원 — 아는 만큼 챙기는 권리</div>
-          <div class="guide-card-sub">연말정산 · 보험금 · 지원 제도</div>
-        </div>
-      </div>
-      <ul class="guide-items">
-        <li>
-          <div>
-            <p><strong>세법상 장애인 공제를 챙기세요.</strong> 암 환자는 '세법상 장애인'으로 인정받을 수 있으며, 연말정산 시 장애인 소득공제가 적용됩니다. 병원에서 '장애인 증명서'를 발급받아 사용하면 됩니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>보험금 청구는 포기하지 마세요.</strong> 보험사가 지급을 거부하거나 적게 지급한다고 판단되면 손해사정사에게 상담을 받으세요. 수수료는 보험금 수령 후 지불하는 방식이 많아 부담이 적습니다.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p><strong>가족 돌봄 휴가·휴직 제도를 확인하세요.</strong> 직장인이라면 가족 돌봄 휴직(연간 최대 90일)을 신청할 수 있습니다. 고용보험에서 일부 급여도 지원됩니다. 회사 인사담당자 또는 고용노동부 고객상담센터(1350)에 문의하세요.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+<section class="hero">
+  <div class="eyebrow">🤝 가족·보호자입니다</div>
+  <h1>내 마음을 지키며 곁에 있는 법</h1>
+  <p class="lead">18년간 18만 명이 함께한 암승모가 정리한 보호자 실전 체크리스트입니다. 진단 직후부터 치료 종료 후까지, 단계별로 놓치기 쉬운 것들을 하나씩 확인해보세요.</p>
+  <div class="stats">
+    <div class="stat"><b>18년+</b><span>커뮤니티 운영 역사</span></div>
+    <div class="stat"><b>18만+</b><span>함께한 암 환우 가족</span></div>
+    <div class="stat"><b>7단계</b><span>보호자 체크리스트</span></div>
+    <div class="stat"><b>무료</b><span>완전 무료</span></div>
   </div>
+</section>
+
+<div class="intro-prose">
+  <h2>암 보호자, 무엇부터 챙겨야 할까요</h2>
+  <p>암 진단은 환자뿐 아니라 가족 전체의 삶을 흔듭니다. 특히 보호자는 환자를 돌보는 동시에 병원 서류, 보험 청구, 요양기관 선택, 재정 지원 제도 같은 낯선 행정 절차까지 감당해야 합니다. 암승모는 2007년부터 18년간 18만 명의 환우·보호자와 함께하며, 이 과정에서 실제로 무엇을 놓치기 쉬운지 정리해왔습니다.</p>
+  <p>아래 체크리스트는 진단 직후, 병원·요양기관 선택, 치료 중 관리, 보험·병원비, 재정·지원제도, 보호자 마음 관리, 치료 종료 후 관리까지 7단계로 구성되어 있습니다. 항목을 하나씩 체크하며 지금 내 상황에 맞는 것부터 확인해보세요.</p>
 </div>
 
-<div class="cta-section">
-  <div class="container">
-    <h2>더 깊은 내용이 필요하신가요?</h2>
-    <p>암승모 마스터 클래스에는 보호자 죄책감 해독 프로젝트, 간병 시스템 템플릿, 행정·법률 지원 완전 가이드 등 훨씬 상세한 내용이 있습니다.</p>
-    <div class="cta-buttons">
-      <a href="https://cafe.naver.com/amwinner" class="btn-primary">🏠 암승모 카페에서 자세히 보기</a>
-      <a href="https://cancer.it.kr/#stage" class="btn-secondary">← 다른 단계 보기</a>
+<div class="wrap">
+
+  <div class="profile-card">
+    <h3>먼저 알려주세요</h3>
+    <p class="sub">체크리스트를 더 정확하게 맞춰드리고, 나중에 필요한 정보를 놓치지 않게 도와드립니다.</p>
+    <div class="profile-grid">
+      <div class="profile-field">
+        <label for="p-role">구분</label>
+        <select id="p-role">
+          <option value="">선택하세요</option>
+          <option value="환자">환자 본인</option>
+          <option value="보호자">보호자</option>
+        </select>
+      </div>
+      <div class="profile-field">
+        <label for="p-hospital">다니는 병원</label>
+        <input type="text" id="p-hospital" placeholder="예: OO대학병원">
+      </div>
+      <div class="profile-field">
+        <label for="p-region">거주 지역</label>
+        <input type="text" id="p-region" placeholder="예: 서울 강남구">
+      </div>
+      <div class="profile-field">
+        <label for="p-cancer">암종 / 병기(기수)</label>
+        <input type="text" id="p-cancer" placeholder="예: 위암 2기">
+      </div>
     </div>
+    <div class="profile-status" id="profileStatus">체크 항목을 누르면 위 정보와 함께 자동으로 기록됩니다.</div>
   </div>
-</div>
 
-<div class="stage-nav">
-  <h3>다른 단계 가이드도 확인하세요</h3>
-  <div class="stage-grid">
-    <a href="https://cancer.it.kr/guide-diagnosis.html" class="stage-btn"><span>😰</span>진단 초기</a>
-    <a href="https://cancer.it.kr/guide-treatment.html" class="stage-btn"><span>💊</span>치료 중</a>
-    <a href="https://cancer.it.kr/guide-recovery.html" class="stage-btn"><span>🌱</span>치료 종료 후</a>
-    <a href="https://cancer.it.kr/guide-recurrence.html" class="stage-btn"><span>💙</span>재발·전이</a>
-    <a href="https://cancer.it.kr/guide-caregiver.html" class="stage-btn active"><span>🤝</span>보호자</a>
+  <div class="progress-card">
+    <div>
+      <div class="progress-ring-label">진행률</div>
+      <div class="progress-num" id="progressNum">0%</div>
+    </div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
   </div>
+
+  <div class="lead-banner">
+    <p>💌 18만 선배들의 노하우, 투병 생활 비밀노트 무료로 받기</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpN1jbpwZs-MY2V6eQcQG_EqGZ5MmsBDCdjbzchL28IE-HuQ/viewform" target="_blank" rel="noopener">신청하기</a>
+  </div>
+
+  <div id="categories"></div>
+
+  <div class="lead-card">
+    <span class="tag">암승모 무료 자료</span>
+    <h3>여기까지 체크하셨다면, 비밀노트도 받아보세요</h3>
+    <p>18만 명의 암승모 선배 환우·보호자들이 직접 겪으며 쌓은 투병 생활 비밀노트를 무료로 보내드립니다.</p>
+    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfpN1jbpwZs-MY2V6eQcQG_EqGZ5MmsBDCdjbzchL28IE-HuQ/viewform" target="_blank" rel="noopener">비밀노트 무료 신청하기 →</a>
+    <div class="fine">닉네임·거주지역·암종/기수·연락처·이메일 입력 후 개인정보 수집·이용에 동의하시면 신청이 완료됩니다.</div>
+  </div>
+
+  <div class="warn">
+    이 체크리스트는 암승모가 지난 18년간 환우·보호자와 함께 정리해온 일반 정보 제공용 자료이며, 의료적 조언을 대체하지 않습니다. 실제 진단·치료 판단은 반드시 담당 의료진과 상의하시기 바랍니다. 병원·보험사별 절차는 다를 수 있습니다. 입력하신 정보는 서비스 개선과 자료 안내 목적으로만 사용됩니다.
+  </div>
+
 </div>
 
-<div class="disclaimer">
-  ⚠️ 본 가이드의 모든 의료 정보는 교육 및 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다.<br>
-  건강 관련 결정은 반드시 담당 의료진과 상담 후 진행하시기 바랍니다.
-</div>
-
-<footer>
-  <div>© 2026 Cancer IT KR · 빅터강 매니저 · All rights reserved.</div>
-  <div style="margin-top:8px;">
-    <a href="https://cancer.it.kr/">홈</a>
-    <a href="https://cancer.it.kr/copyright.html">저작권 안내</a>
-    <a href="mailto:kangnw2023@gmail.com">문의하기</a>
-    <a href="https://cafe.naver.com/amwinner">암승모 카페</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-cols">
+      <div>
+        <h4>단계별 가이드</h4>
+        <a href="https://cancer.it.kr/guide-diagnosis.html">진단 초기</a>
+        <a href="https://cancer.it.kr/guide-treatment.html">치료 중</a>
+        <a href="https://cancer.it.kr/guide-recovery.html">치료 종료 후</a>
+        <a href="https://cancer.it.kr/guide-recurrence.html">재발·전이</a>
+        <a href="guide-caregiver.html">보호자 과정</a>
+      </div>
+      <div>
+        <h4>커뮤니티</h4>
+        <a href="https://cafe.naver.com/amwinner">암승모 네이버 카페</a>
+        <a href="https://forms.gle/tFzzgKqGtTHUw5eP8">뉴스레터 구독</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpN1jbpwZs-MY2V6eQcQG_EqGZ5MmsBDCdjbzchL28IE-HuQ/viewform">비밀노트 신청</a>
+      </div>
+    </div>
+    <div class="disclaimer">⚠️ 본 사이트의 모든 의료 정보는 참고 목적으로만 제공되며, 전문 의료인의 진단 및 치료를 대체할 수 없습니다. 건강 관련 결정은 반드시 담당 의료진과 상담 후 진행하시기 바랍니다.</div>
+    <div class="copyright">© 2026 Cancer IT KR (cancer.it.kr) · 빅터강 매니저 · All rights reserved.</div>
   </div>
 </footer>
 
+<script>
+// ⚠ 이 주소를 Apps Script 배포 후 나온 웹 앱 URL로 바꿔주세요. (동봉한 체크리스트_수집_AppsScript.gs 참고)
+const ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+const DATA = [
+  {
+    title: "① 진단 직후 확인할 것",
+    items: [
+      ["병명과 병기(스테이지) 정확히 확인하기", "병기에 따라 치료 방향이 완전히 달라집니다. 이해가 안 되면 다시 질문하세요."],
+      ["조직검사 결과지 원본 수령하고 복사본 챙기기", "세컨드 오피니언이나 다른 병원 진료 시 반드시 필요합니다."],
+      ["주치의 이름·진료과·연락처 메모하기", "여러 과가 협진하는 경우 주 담당의를 명확히 해두세요."],
+      ["치료 시작까지 여유 시간 확인하기", "대부분 며칠의 여유가 있습니다. 급하게 결정하지 마세요."],
+      ["산정특례 등록 여부 확인하기", "본인부담금을 5%로 낮춰주는 제도. 병원이 자동 등록해도 누락 여부는 꼭 확인하세요."],
+      ["진료실 준비물 챙기기 — 질문 노트, 복용약 리스트, 녹음 가능한 폰, 동행 보호자", null]
+    ]
+  },
+  {
+    title: "② 병원·요양기관 선택",
+    items: [
+      ["병원 선택 3대 기준 확인하기", "질환 중증도, 접근성(왕복 4시간 이내), 협진 시스템(재활의학과·정신건강의학과·영양팀)"],
+      ["세컨드 오피니언 필요 여부 결정하기", "준비물: 조직검사 결과지(영문 포함), 슬라이드, 영상 CD 원본, 의무기록 사본"],
+      ["\"암이 낫는다\"는 자연치유원 광고는 의심하기", "이런 문구를 쓰는 곳은 100% 사기입니다. 자연치유원은 쉬는 곳이지 치료하는 곳이 아닙니다."]
+    ],
+    infoCard: {
+      title: "✅ 좋은 요양병원 고르는 7가지 체크리스트",
+      rows: [
+        ["야간 당직 의사", "밤에 열이 38도 넘으면 누가 봐주나요? 24시간 의사 상주 여부 필수"],
+        ["대학병원 거리", "응급 시 구급차로 30분 이내에 주치의 있는 병원에 갈 수 있는가"],
+        ["암 환자 식단", "영양사가 저염·고단백 맞춤형으로 직접 조리하는가"],
+        ["병실 환경", "침대 간격이 넓은가(감염 위험), 공기청정·환기 시스템은 잘 되어있나"],
+        ["산책로", "건물 밖이나 옥상에 안전하게 걸을 공간이 있는가 (가장 중요)"],
+        ["비급여 강요", "\"이거 안 하면 큰일 난다\"며 비싼 비급여 치료를 강매하지 않는가"],
+        ["보험 심사팀", "실비 청구 서류를 잘 챙겨주고 분쟁 시 도와주는 원무팀이 있는가"]
+      ]
+    }
+  },
+  {
+    title: "③ 치료 중 관리",
+    items: [
+      ["현재 치료의 목적 이해하기", "완치 목적인지, 재발 방지인지, 증상 완화인지에 따라 감수할 부작용 정도가 달라집니다."],
+      ["다음 치료 일정 캘린더에 기록하기", "치료 간격이 중요합니다. 병원 연락이 오면 즉시 확인하세요."],
+      ["매일 부작용 증상 간단히 기록하기", "구토·통증·피로도를 기록해두면 진료 시 정확한 대응이 가능합니다. 참지 말고 전부 보고하세요."],
+      ["민간요법 병행 시 의료진에게 반드시 공유하기", null]
+    ],
+    infoCard: {
+      title: "🩹 수술 부위별 후유증 관리",
+      rows: [
+        ["유방암·자궁암 (림프부종)", "수술한 쪽 팔로 채혈·혈압측정·무거운 짐 들기 절대 금지. 심장 방향으로 마사지."],
+        ["위암 (덤핑증후군)", "국물과 밥을 따로 먹기. 식사 후 30분은 상체를 세운 채 휴식."],
+        ["대장암·복부수술 (장유착)", "아파도 걸으세요. 걷는 것이 장 유착을 막는 유일한 방법입니다."]
+      ]
+    }
+  },
+  {
+    title: "④ 보험·병원비",
+    items: [
+      ["실손보험 청구 서류 준비하기", "진단서(질병코드 확인), 입퇴원확인서·수술확인서, 진료비 상세내역서"],
+      ["산정특례 갱신 주기 확인하기", "5년 단위 갱신, 재발 시 재등록이 필요합니다."],
+      ["요양병원 입원비 인정 조건 알아두기", "\"암의 직접적인 치료\" 목적일 때만 인정됩니다. 항암 전후, 수술 직후 회복, 방사선 기간 중이 해당. 단순 요양 목적은 거절될 수 있습니다."],
+      ["장기 입원 시 중간 정산서로 선청구하기", "퇴원 때 한 번에 내지 말고 중간 정산서를 보험사에 청구하면 병원비를 미리 받을 수 있습니다."],
+      ["진단서·영수증 원본 스캔해서 별도 보관하기", null]
+    ]
+  },
+  {
+    title: "⑤ 재정·지원제도",
+    items: [
+      ["국가암환자의료비지원사업 대상 여부 확인하기", "저소득층 대상 지원사업입니다."],
+      ["거주 지자체 암환자 지원금 확인하기", null],
+      ["연말정산 의료비 세액공제 준비하기", "영수증을 미리 모아두세요."]
+    ],
+    promo: true
+  },
+  {
+    title: "⑥ 보호자 마음 관리",
+    items: [
+      ["나의 감정 상태 정기적으로 점검하기", "보호자가 쓰러지면 환자도 힘들어집니다. 본인을 돌보는 것도 치료의 일부입니다."],
+      ["쉬는 시간 반드시 확보하기", "필요하면 다른 가족, 요양보호사, 단기 간병인 고용도 고려하세요. 돈이 들어도 써야 합니다."],
+      ["환자가 울 때는 해결책 대신 곁에 있어주기", "침묵의 동행이 더 큰 힘이 됩니다."],
+      ["환우회·보호자 커뮤니티 연결하기", "암승모 같은 커뮤니티에서 같은 경험을 한 사람들과 연결되세요."]
+    ],
+    dialogue: {
+      bad: ["\"힘내\"", "\"다 잘 될 거야\"", "\"네가 의지가 약해서 그래\""],
+      good: ["\"네가 얼마나 힘들지 감히 상상도 안 가지만, 내가 끝까지 같이 할게\"", "\"오늘 점심은 뭐 먹고 싶어?\""]
+    }
+  },
+  {
+    title: "⑦ 치료 종료 후 관리",
+    items: [
+      ["추적 검사 일정 확인하고 미루지 않기", "재발 조기 발견을 위해 일정 준수가 매우 중요합니다."],
+      ["\"끝났다\"는 생각 내려놓기", "재발 가능성을 이해하고 관리를 이어가세요."],
+      ["극단적 식이요법 중단하고 무리 없는 운동 시작하기", null],
+      ["보조제 복용 전 의료진과 상담하기", null],
+      ["전이·재발 시 치료 목표 미리 정리해두기", "생존 기간 연장이 우선인지, 삶의 질 유지가 우선인지. 정답은 없습니다. 본인의 가치관에 따라 선택하세요."]
+    ]
+  }
+];
+
+const PROMO_HTML = `
+  <div class="promo-card">
+    <span class="promo-tag">제휴 서비스</span>
+    <h4>예상 치료비 · 보험금, 3분 만에 무료로 확인하기</h4>
+    <p>레어노트(RareNote)는 10년간 암·희귀질환 환우를 지원해온 헬스케어 플랫폼입니다. 내 보험 정보와 치료 계획을 입력하면 예상 치료비와 보험금을 무료로 미리 확인할 수 있습니다.</p>
+    <ul>
+      <li>내가 가입한 보험으로 받을 수 있는 보장금 상세 조회</li>
+      <li>같은 질환 환자들과의 평균 치료비 비교</li>
+      <li>놓칠 수 있는 추가 보장 조회</li>
+    </ul>
+    <a class="promo-btn" href="https://rarenote.io/insuranceGuide?currentTab=cancer" target="_blank" rel="noopener">레어노트에서 확인하기 →</a>
+    <div class="promo-note">외부 제휴 서비스로 연결됩니다. 계산 결과는 실제 수령액과 다를 수 있으며, 상담·가입을 권유하는 서비스가 아닙니다.</div>
+  </div>
+`;
+
+function renderInfoCard(card) {
+  return `
+    <div class="info-card">
+      <h4>${card.title}</h4>
+      ${card.rows.map((r, i) => `
+        <div class="info-row">
+          <div class="info-num">${i + 1}</div>
+          <div><b>${r[0]}</b><span class="d">${r[1]}</span></div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderDialogue(d) {
+  return `
+    <div class="dialogue">
+      <div class="dialogue-col bad"><b>이렇게 말하지 마세요</b><ul>${d.bad.map(t => `<li>${t}</li>`).join("")}</ul></div>
+      <div class="dialogue-col good"><b>이렇게 말해주세요</b><ul>${d.good.map(t => `<li>${t}</li>`).join("")}</ul></div>
+    </div>
+  `;
+}
+
+const root = document.getElementById("categories");
+
+DATA.forEach((cat, ci) => {
+  const el = document.createElement("div");
+  el.className = "category" + (ci === 0 ? " open" : "");
+  el.innerHTML = `
+    <div class="category-head" data-idx="${ci}">
+      <div class="category-title">${cat.title}</div>
+      <div style="display:flex;align-items:center;">
+        <span class="category-badge" id="badge-${ci}">0/${cat.items.length}</span>
+        <span class="category-chevron">▾</span>
+      </div>
+    </div>
+    <div class="category-body">
+      ${cat.items.map((t, ii) => `
+        <div class="item" id="item-${ci}-${ii}">
+          <div class="item-row">
+            <input type="checkbox" id="chk-${ci}-${ii}" data-ci="${ci}" data-cat="${cat.title}" data-item="${t[0].replace(/"/g, "&quot;")}">
+            <label for="chk-${ci}-${ii}">${t[0]}</label>
+          </div>
+          ${t[1] ? `<div class="tip">${t[1]}</div>` : ""}
+        </div>
+      `).join("")}
+      ${cat.infoCard ? renderInfoCard(cat.infoCard) : ""}
+      ${cat.dialogue ? renderDialogue(cat.dialogue) : ""}
+      ${cat.promo ? PROMO_HTML : ""}
+    </div>
+  `;
+  root.appendChild(el);
+});
+
+root.querySelectorAll(".category-head").forEach(head => {
+  head.addEventListener("click", () => { head.closest(".category").classList.toggle("open"); });
+});
+
+function updateProgress() {
+  const all = document.querySelectorAll('input[type="checkbox"]');
+  const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+  const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+  document.getElementById("progressNum").textContent = pct + "%";
+  document.getElementById("progressFill").style.width = pct + "%";
+  DATA.forEach((cat, ci) => {
+    const catChecked = document.querySelectorAll(`input[data-ci="${ci}"]:checked`).length;
+    document.getElementById(`badge-${ci}`).textContent = `${catChecked}/${cat.items.length}`;
+  });
+}
+
+function getProfile() {
+  return {
+    role: document.getElementById("p-role").value,
+    hospital: document.getElementById("p-hospital").value,
+    region: document.getElementById("p-region").value,
+    cancerType: document.getElementById("p-cancer").value
+  };
+}
+
+let sentCount = 0;
+function logEvent(category, item, checked) {
+  const profile = getProfile();
+  const payload = Object.assign({ category, item, checked }, profile);
+
+  if (!ENDPOINT || ENDPOINT.indexOf("PASTE_YOUR") === 0) {
+    console.log("[체크리스트 데이터 - Apps Script 미연결, 콘솔에만 기록]", payload);
+    return;
+  }
+
+  fetch(ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload)
+  }).catch(() => { /* 저장 실패해도 체크리스트 사용에는 지장 없도록 무시 */ });
+
+  sentCount += 1;
+  const statusEl = document.getElementById("profileStatus");
+  statusEl.textContent = `${sentCount}건 기록됨`;
+  statusEl.classList.add("on");
+}
+
+root.addEventListener("change", (e) => {
+  if (e.target.type === "checkbox") {
+    e.target.closest(".item").classList.toggle("checked", e.target.checked);
+    updateProgress();
+    logEvent(e.target.dataset.cat, e.target.dataset.item, e.target.checked);
+  }
+});
+
+updateProgress();
+</script>
 </body>
 </html>
